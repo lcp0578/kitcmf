@@ -1,3 +1,7 @@
+kit_news:
+    resource: "@KitNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
 kit_admin:
     resource: "@KitAdminBundle/Resources/config/routing.yml"
     prefix:   /
