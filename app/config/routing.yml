@@ -1,3 +1,8 @@
+kit_user:
+    resource: "@KitUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 kit_news:
     resource: "@KitNewsBundle/Resources/config/routing.yml"
     prefix:   /
