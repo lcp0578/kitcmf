@@ -1,3 +1,3 @@
 kit_news_homepage:
-    path:     /
+    path:     /news
     defaults: { _controller: KitNewsBundle:Default:index }
