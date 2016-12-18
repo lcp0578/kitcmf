@@ -1,0 +1,4 @@
+services:
+#    kit_user.example:
+#        class: KitUserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
