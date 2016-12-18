@@ -1,3 +1,8 @@
+kit_case:
+    resource: "@KitCaseBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 kit_user:
     resource: "@KitUserBundle/Controller/"
     type:     annotation
@@ -14,3 +19,5 @@ kit_admin:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
