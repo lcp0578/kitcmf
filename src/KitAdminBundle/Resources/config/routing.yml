@@ -1,3 +1,9 @@
 kit_admin_homepage:
     path:     /admin
     defaults: { _controller: KitAdminBundle:Default:index }
+kit_admin_list:
+    path:     /admin/list
+    defaults: { _controller: KitAdminBundle:Default:list }
+kit_admin_add:
+    path:     /admin/add
+    defaults: { _controller: KitAdminBundle:Default:add }

@@ -10,4 +10,12 @@ class DefaultController extends Controller
     {
         return $this->render('KitAdminBundle:Default:index.html.twig');
     }
+    public function listAction()
+    {
+        return $this->render('KitAdminBundle:Default:index.html.twig');
+    }
+    public function addAction()
+    {
+        return $this->render('KitAdminBundle:Default:index.html.twig');
+    }
 }

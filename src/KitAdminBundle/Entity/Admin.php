@@ -20,21 +20,21 @@ class Admin extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=60, unique=true)
      */
-    private $username;
+    //protected $username;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=120)
      */
-    private $password;
+    //protected $password;
 
     /**
      * @var string
