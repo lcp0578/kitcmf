@@ -11,7 +11,7 @@ class BaseController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function baseAction(Request $request)
     {
         $menuBulider = $this->get('kit.menu_builder');
         // replace this example code with whatever you need
