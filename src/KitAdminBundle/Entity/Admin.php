@@ -389,8 +389,8 @@ class Admin implements UserInterface
      *
      * @param string|null $salt            
      */
-    public function setSalt($salt);
-    public function getSalt();
+    public function setSalt($salt){}
+    public function getSalt(){}
     /**
      * Gets email.
      *

@@ -7,3 +7,6 @@ kit_admin_list:
 kit_admin_add:
     path:     /admin/add
     defaults: { _controller: KitAdminBundle:Default:add }
+kit_admin_add_success:
+    path:     /admin/add_success
+    defaults: { _controller: KitAdminBundle:Default:addSuccess }
