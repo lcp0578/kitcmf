@@ -2,8 +2,8 @@
 
 namespace Kit\CaseBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use KitBaseBundle\KitBaseBundle;
 
-class KitCaseBundle extends Bundle
+class KitCaseBundle extends KitBaseBundle
 {
 }

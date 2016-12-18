@@ -2,8 +2,8 @@
 
 namespace Kit\MenuBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use KitBaseBundle\KitBaseBundle;
 
-class KitMenuBundle extends Bundle
+class KitMenuBundle extends KitBaseBundle
 {
 }

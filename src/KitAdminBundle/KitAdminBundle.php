@@ -2,8 +2,8 @@
 
 namespace KitAdminBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use KitBaseBundle\KitBaseBundle;
 
-class KitAdminBundle extends Bundle
+class KitAdminBundle extends KitBaseBundle
 {
 }

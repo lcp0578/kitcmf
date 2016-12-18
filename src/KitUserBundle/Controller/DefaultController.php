@@ -2,10 +2,10 @@
 
 namespace KitUserBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use KitBaseBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
     /**
      * @Route("/user/index")

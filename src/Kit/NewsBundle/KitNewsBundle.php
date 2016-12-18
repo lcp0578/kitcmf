@@ -2,8 +2,8 @@
 
 namespace Kit\NewsBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use KitBaseBundle\KitBaseBundle;
 
-class KitNewsBundle extends Bundle
+class KitNewsBundle extends KitBaseBundle
 {
 }

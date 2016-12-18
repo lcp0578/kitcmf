@@ -2,9 +2,9 @@
 
 namespace Kit\MenuBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use KitBaseBundle\Controller\BaseController;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
     public function indexAction()
     {
