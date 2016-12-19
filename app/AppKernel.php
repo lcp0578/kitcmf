@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new KitBaseBundle\KitBaseBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new KitAdminBundle\KitAdminBundle(),
             new Kit\NewsBundle\KitNewsBundle(),
             new KitUserBundle\KitUserBundle(),
