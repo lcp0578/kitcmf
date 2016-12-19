@@ -1,0 +1,3 @@
+kit_archive_homepage:
+    path:     /archive
+    defaults: { _controller: KitArchiveBundle:Default:index }

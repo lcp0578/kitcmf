@@ -1,0 +1,3 @@
+kit_inquire_homepage:
+    path:     /inquire
+    defaults: { _controller: KitInquireBundle:Default:index }

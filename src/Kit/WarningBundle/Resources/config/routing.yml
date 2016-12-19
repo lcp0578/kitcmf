@@ -1,0 +1,3 @@
+kit_warning_homepage:
+    path:     /warning
+    defaults: { _controller: KitWarningBundle:Default:index }

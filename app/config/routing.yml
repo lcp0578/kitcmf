@@ -1,3 +1,27 @@
+kit_settings:
+    resource: "@KitSettingsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kit_archive:
+    resource: "@KitArchiveBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kit_inquire:
+    resource: "@KitInquireBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kit_analysis:
+    resource: "@KitAnalysisBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kit_warning:
+    resource: "@KitWarningBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kit_monitor:
+    resource: "@KitMonitorBundle/Resources/config/routing.yml"
+    prefix:   /
+
 kit_menu:
     resource: "@KitMenuBundle/Resources/config/routing.yml"
     prefix:   /

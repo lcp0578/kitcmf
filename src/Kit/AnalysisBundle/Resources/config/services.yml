@@ -1,0 +1,4 @@
+services:
+#    kit_analysis.example:
+#        class: Kit\AnalysisBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

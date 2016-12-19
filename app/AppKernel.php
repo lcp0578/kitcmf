@@ -24,6 +24,12 @@ class AppKernel extends Kernel
             new KitUserBundle\KitUserBundle(),
             new Kit\CaseBundle\KitCaseBundle(),
             new Kit\MenuBundle\KitMenuBundle(),
+            new Kit\MonitorBundle\KitMonitorBundle(),
+            new Kit\WarningBundle\KitWarningBundle(),
+            new Kit\AnalysisBundle\KitAnalysisBundle(),
+            new Kit\InquireBundle\KitInquireBundle(),
+            new Kit\ArchiveBundle\KitArchiveBundle(),
+            new Kit\SettingsBundle\KitSettingsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

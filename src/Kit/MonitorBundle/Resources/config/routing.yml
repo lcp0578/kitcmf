@@ -1,0 +1,3 @@
+kit_monitor_homepage:
+    path:     /monitor
+    defaults: { _controller: KitMonitorBundle:Default:index }

@@ -52,6 +52,8 @@ form .form-group:last-child {
 .admin-nav ul li {
 	float: none;
 	display: block;
+	height: 50px;
+	padding:10px 0;
 }
 .admin-nav ul ul li {
 	list-style: circle;
@@ -117,20 +119,20 @@ form .form-group:last-child {
 .admin-panel .pagination .active {
 	background: #fff;
 }
-/*--------自定义链接颜色(可选)--------*/
+/*--------鑷畾涔夐摼鎺ラ鑹�鍙�)--------*/
 
 a {
 	color: #333;
 	text-decoration: none;
 }
-/*链接-颜色*/
+/*閾炬帴-棰滆壊*/
 
 a:focus,
 a:hover {
 	color: #09c;
 }
-/*链接-悬浮颜色*/
-/*--------自定义文本颜色--------*/
+/*閾炬帴-鎮诞棰滆壊*/
+/*--------鑷畾涔夋枃鏈鑹�-------*/
 
 .text-main,
 a.text-main:link,
@@ -149,7 +151,7 @@ blockquote.border-main strong,
 .bg-inverse .nav.nav-menu.nav-pills .active ul a:hover {
 	color: #09c;
 }
-/*文本-主色*/
+/*鏂囨湰-涓昏壊*/
 
 .text-sub,
 a.text-sub:link,
@@ -161,7 +163,7 @@ blockquote.border-sub strong,
 .pager-next.border-sub {
 	color: #2c7;
 }
-/*文本-辅色*/
+/*鏂囨湰-杈呰壊*/
 
 .text-back,
 a.text-back:link,
@@ -173,7 +175,7 @@ blockquote.border-back,
 .pager-next.border-back {
 	color: #b5cfd9;
 }
-/*文本-背景色*/
+/*鏂囨湰-鑳屾櫙鑹�/
 
 .text-mix,
 a.text-mix:link,
@@ -185,7 +187,7 @@ blockquote.border-mix,
 .pager-next.border-mix {
 	color: #5cd;
 }
-/*文本-融合色*/
+/*鏂囨湰-铻嶅悎鑹�/
 
 .text-dot,
 a.text-dot:link,
@@ -197,8 +199,8 @@ blockquote.border-dot strong,
 .pager-next.border-dot {
 	color: #f60;
 }
-/*文本-点缀色*/
-/*--------自定义背景色--------*/
+/*鏂囨湰-鐐圭紑鑹�/
+/*--------鑷畾涔夎儗鏅壊--------*/
 
 .bg-main,
 .border-main .button.active,
@@ -208,7 +210,7 @@ blockquote.border-dot strong,
 .pagination.border-main .active {
 	background-color: #09c;
 }
-/*背景-主色*/
+/*鑳屾櫙-涓昏壊*/
 
 .bg-sub,
 .border-sub .button.active,
@@ -218,7 +220,7 @@ blockquote.border-dot strong,
 .pagination.border-sub .active {
 	background-color: #2c7;
 }
-/*背景-辅色*/
+/*鑳屾櫙-杈呰壊*/
 
 .bg-back,
 .border-back .button.active,
@@ -228,7 +230,7 @@ blockquote.border-dot strong,
 .pagination.border-back .active {
 	background-color: #f2f9fd;
 }
-/*背景-背景色*/
+/*鑳屾櫙-鑳屾櫙鑹�/
 
 .bg-mix,
 .border-mix .button.active,
@@ -237,7 +239,7 @@ blockquote.border-dot strong,
 .pagination.border-mix .active {
 	background-color: #5cd;
 }
-/*背景-融合色*/
+/*鑳屾櫙-铻嶅悎鑹�/
 
 .bg-dot,
 .border-dot .button.active,
@@ -247,8 +249,8 @@ blockquote.border-dot strong,
 .pagination.border-dot .active {
 	background-color: #f60;
 }
-/*背景-点缀色*/
-/*--------自定义边框色--------*/
+/*鑳屾櫙-鐐圭紑鑹�/
+/*--------鑷畾涔夎竟妗嗚壊--------*/
 
 .border-main,
 .border-main .button,
@@ -265,7 +267,7 @@ blockquote.border-dot strong,
 .pager.border-main a {
 	border-color: #09c;
 }
-/*边框-主色*/
+/*杈规-涓昏壊*/
 
 .border-sub,
 .border-sub .button,
@@ -282,7 +284,7 @@ blockquote.border-dot strong,
 .pager.border-sub a {
 	border-color: #2c7;
 }
-/*边框-辅色*/
+/*杈规-杈呰壊*/
 
 .border-back,
 .border-back .button,
@@ -299,7 +301,7 @@ blockquote.border-dot strong,
 .pager.border-back a {
 	border-color: #b5cfd9;
 }
-/*边框-背景色*/
+/*杈规-鑳屾櫙鑹�/
 
 .border-mix,
 .border-mix .button,
@@ -316,7 +318,7 @@ blockquote.border-dot strong,
 .pager.border-mix a {
 	border-color: #5cd;
 }
-/*边框-融合色*/
+/*杈规-铻嶅悎鑹�/
 
 .border-dot,
 .border-dot .button,
@@ -333,8 +335,8 @@ blockquote.border-dot strong,
 .pager.border-dot a {
 	border-color: #f60;
 }
-/*边框-点缀色*/
-/*--------自定义按钮悬浮文本、边框及背景色--------*/
+/*杈规-鐐圭紑鑹�/
+/*--------鑷畾涔夋寜閽偓娴枃鏈�杈规鍙婅儗鏅壊--------*/
 
 .button.border-main:hover,
 .button.border-main:focus,
@@ -344,7 +346,7 @@ blockquote.border-dot strong,
 	border-color: #0ae;
 	background-color: #0ae;
 }
-/*主色-文本-边框-背景*/
+/*涓昏壊-鏂囨湰-杈规-鑳屾櫙*/
 
 .button.border-sub:hover,
 .button.border-sub:focus,
@@ -354,7 +356,7 @@ blockquote.border-dot strong,
 	border-color: #b5cfd9;
 	background-color: #b5cfd9;
 }
-/*配色-文本-边框-背景*/
+/*閰嶈壊-鏂囨湰-杈规-鑳屾櫙*/
 
 .button.border-back:hover,
 .button.border-back:focus,
@@ -364,7 +366,7 @@ blockquote.border-dot strong,
 	border-color: #def;
 	background-color: #def;
 }
-/*背景色-文本-边框-背景*/
+/*鑳屾櫙鑹�鏂囨湰-杈规-鑳屾櫙*/
 
 .button.border-mix:hover,
 .button.border-mix:focus,
@@ -374,7 +376,7 @@ blockquote.border-dot strong,
 	border-color: #3bc;
 	background-color: #3bc;
 }
-/*融合-文本色-边框-背景*/
+/*铻嶅悎-鏂囨湰鑹�杈规-鑳屾櫙*/
 
 .button.border-dot:hover,
 .button.border-dot:focus,
@@ -384,4 +386,4 @@ blockquote.border-dot strong,
 	border-color: #f00;
 	background-color: #f00;
 }
-/*点缀色-文本-边框-背景*/
+/*鐐圭紑鑹�鏂囨湰-杈规-鑳屾櫙*/
