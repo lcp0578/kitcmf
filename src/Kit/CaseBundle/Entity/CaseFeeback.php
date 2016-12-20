@@ -24,70 +24,77 @@ class CaseFeeback
     /**
      * @var string
      *
-     * @ORM\Column(name="case_no", type="string", length=64)
+     * @ORM\Column(name="case_no", type="string", length=64, options={"comment": "案件编号"})
      */
     private $caseNo;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="case_register_id", type="integer")
+     * @ORM\Column(name="case_register_id", type="integer", options={"comment": "案件登记ID"})
      */
     private $caseRegisterId;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="treat_time", type="datetimetz")
+     * @ORM\Column(name="treat_time", type="datetimetz", options={"comment": "出警时间"})
      */
     private $treatTime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="arrive_time", type="datetimetz")
+     * @ORM\Column(name="arrive_time", type="datetimetz", options={"comment": "到达现场情况"})
      */
     private $arriveTime;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="treat_content", type="text")
+     * @ORM\Column(name="treat_content", type="text", options={"comment": "出警情况"})
      */
     private $treatContent;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="treat_result_id", type="integer")
+     * @ORM\Column(name="treat_result_id", type="integer", options={"comment": "处理结果ID"})
      */
     private $treatResultId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="treat_result_name", type="string", length=64)
+     * @ORM\Column(name="treat_result_name", type="string", length=64, options={"comment": "处理结果名称"})
      */
     private $treatResultName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="evoke_content", type="text")
+     * @ORM\Column(name="evoke_content", type="text", options={"comment": "报立、移送情况"})
      */
     private $evokeContent;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="case_type", type="integer")
+     * @ORM\Column(name="case_type", type="integer", options={"comment": "案件类型"})
      */
     private $caseType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="treat_police", type="string", length=64)
+     * @ORM\Column(name="attachment", type="string", length=255, options={"comment": "材料文件，多个"})
+     */
+    private $attachment;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="treat_police", type="string", length=64, options={"comment": "出警人"})
      */
     private $treatPolice;
 
@@ -318,6 +325,30 @@ class CaseFeeback
         return $this->caseType;
     }
 
+    /**
+     * Set attachment
+     *
+     * @param string $attachment
+     *
+     * @return CaseFeeback
+     */
+    public function setAttachment($attachment)
+    {
+        $this->attachment = $attachment;
+    
+        return $this;
+    }
+    
+    /**
+     * Get attachment
+     *
+     * @return string
+     */
+    public function getAttachment()
+    {
+        return $this->attachment;
+    }
+    
     /**
      * Set treatPolice
      *

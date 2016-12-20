@@ -24,98 +24,98 @@ class CaseRegister
     /**
      * @var string
      *
-     * @ORM\Column(name="case_no", type="string", length=32)
+     * @ORM\Column(name="case_no", type="string", length=32, options={"comment": "案件编号"})
      */
     private $caseNo;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="city_id", type="integer")
+     * @ORM\Column(name="city_id", type="integer", options={"comment": "所属地市ID"})
      */
     private $cityId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="suboffice_id", type="integer")
+     * @ORM\Column(name="suboffice_id", type="integer", options={"comment": "分局ID"})
      */
     private $subofficeId;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="add_time", type="datetimetz")
+     * @ORM\Column(name="add_time", type="datetimetz", options={"comment": "接警时间"})
      */
     private $addTime;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="receive_id", type="integer")
+     * @ORM\Column(name="receive_id", type="integer", options={"comment": "接警方式ID"})
      */
     private $receiveId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="receive_name", type="string", length=64)
+     * @ORM\Column(name="receive_name", type="string", length=64, options={"comment": "接警方式名称"})
      */
     private $receiveName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="alarm_name", type="string", length=32)
+     * @ORM\Column(name="alarm_name", type="string", length=32, options={"comment": "报警人姓名"})
      */
     private $alarmName;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="alarm_gender", type="smallint")
+     * @ORM\Column(name="alarm_gender", type="smallint", options={"comment": "报警人性别"})
      */
     private $alarmGender;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="alarm_contact", type="string", length=64)
+     * @ORM\Column(name="alarm_contact", type="string", length=64, options={"comment": "联系方式"})
      */
     private $alarmContact;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="alarm_address", type="string", length=255)
+     * @ORM\Column(name="alarm_address", type="string", length=255, options={"comment": "工作单位或者住址"})
      */
     private $alarmAddress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="case_address", type="string", length=255)
+     * @ORM\Column(name="case_address", type="string", length=255, options={"comment": "现场地址"})
      */
     private $caseAddress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="case_content", type="string", length=255)
+     * @ORM\Column(name="case_content", type="string", length=255, options={"comment": "接警情况"})
      */
     private $caseContent;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="admin_id", type="integer")
+     * @ORM\Column(name="admin_id", type="integer", options={"comment": "添加者ID"})
      */
     private $adminId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="admin_name", type="string", length=64)
+     * @ORM\Column(name="admin_name", type="string", length=64, options={"comment": "管理员用户名"})
      */
     private $adminName;
 

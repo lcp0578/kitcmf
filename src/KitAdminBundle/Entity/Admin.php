@@ -23,7 +23,7 @@ class Admin implements UserInterface
 
     /**
      *
-     * @var string @ORM\Column(name="username", type="string", length=60, unique=true)
+     * @var string @ORM\Column(name="username", type="string", length=60, unique=true, options={"comment": "ç”¨æˆ·å"})
      */
     protected $username;
 
@@ -363,7 +363,7 @@ class Admin implements UserInterface
 
     /**
      * -----------------------------------------
-     * ¼Ì³Ğinterface±ØĞëÊµÏÖµÄ·½·¨
+     * ï¿½Ì³ï¿½interfaceï¿½ï¿½ï¿½ï¿½Êµï¿½ÖµÄ·ï¿½ï¿½ï¿½
      * -----------------------------------------
      */
     
