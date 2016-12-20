@@ -20,4 +20,12 @@ class BaseController extends Controller
             'main' =>  $menuBulider->createMainMenu([]),
         ]);
     }
+    /**
+     * Get Entity Manager
+     * @return \Doctrine\ORM\EntityManager
+     */
+    protected function getEntityManager()
+    {
+        return $this->getDoctrine()->getManager();
+    }
 }

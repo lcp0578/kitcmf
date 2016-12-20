@@ -3,6 +3,7 @@
 namespace KitAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * AdminGroup
@@ -49,7 +50,25 @@ class AdminGroup
      */
     private $status;
 
+    /**
+     * One Group has Many Admins.
+     * @ORM\OneToMany(targetEntity="Admin", mappedBy="AdminGroup")
+     */
+    private $admins;
+    
+    public function __construct() {
+        $this->admins = new ArrayCollection();
+    }
 
+    /**
+     * Get admins
+     * 
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getAdmins()
+    {
+        return $this->admins;
+    }
     /**
      * Get id
      *

@@ -3,6 +3,7 @@ namespace KitAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -86,6 +87,27 @@ class Admin implements UserInterface
      * @var int @ORM\Column(name="admin_group_id", type="integer")
      */
     private $adminGroupId;
+    
+    /**
+     * Many admins have One group.
+     * @ORM\ManyToOne(targetEntity="AdminGroup", inversedBy="admins")
+     * @ORM\JoinColumn(name="admin_group_id", referencedColumnName="id")
+     */
+    private $group;
+    
+    public function __construct() {
+        $this->group = new ArrayCollection();
+    }
+    
+    /**
+     * Get group
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
 
     /**
      * Get id
@@ -363,7 +385,7 @@ class Admin implements UserInterface
 
     /**
      * -----------------------------------------
-     * �̳�interface����ʵ�ֵķ���
+     * 
      * -----------------------------------------
      */
     

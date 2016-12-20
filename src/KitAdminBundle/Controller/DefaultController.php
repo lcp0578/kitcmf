@@ -17,7 +17,13 @@ class DefaultController extends BaseController
     }
     public function listAction()
     {
-        return $this->render('KitAdminBundle:Default:index.html.twig');
+        $em = $this->getEntityManager();
+        $list = $em->getRepository("KitAdminBundle:Admin")
+                   ->getAllAdmins();
+        dump($list);
+        return $this->render('KitAdminBundle:Default:list.html.twig', [
+            'list' => $list
+        ]);
     }
     public function addAction(Request $request)
     {
