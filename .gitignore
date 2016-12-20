@@ -8,3 +8,4 @@
 /var/logs/*
 !/var/sessions
 /var/sessions/*
+.idea/

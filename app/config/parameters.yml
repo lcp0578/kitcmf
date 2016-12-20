@@ -5,6 +5,7 @@ parameters:
     database_name: kitcmf
     database_user: root
     database_password: lcp0578
+#    database_password: gaofei
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
