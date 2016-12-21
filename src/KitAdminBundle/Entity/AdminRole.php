@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * AdminGroup
+ * AdminRole
  *
- * @ORM\Table(name="admin_group")
- * @ORM\Entity(repositoryClass="KitAdminBundle\Repository\AdminGroupRepository")
+ * @ORM\Table(name="admin_role")
+ * @ORM\Entity(repositoryClass="KitAdminBundle\Repository\AdminRoleRepository")
  */
-class AdminGroup
+class AdminRole
 {
     /**
      * @var int
@@ -51,13 +51,14 @@ class AdminGroup
     private $status;
 
     /**
-     * One Group has Many Admins.
-     * @ORM\OneToMany(targetEntity="Admin", mappedBy="AdminGroup")
+     * One role has Many Admins.
+     * 
+     * @ORM\OneToMany(targetEntity="Admin", mappedBy="AdminRole")
      */
-    private $admins;
+    private $roles;
     
     public function __construct() {
-        $this->admins = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
 
     /**
@@ -84,7 +85,7 @@ class AdminGroup
      *
      * @param string $name
      *
-     * @return AdminGroup
+     * @return AdminRole
      */
     public function setName($name)
     {
@@ -108,7 +109,7 @@ class AdminGroup
      *
      * @param string $accessIds
      *
-     * @return AdminGroup
+     * @return AdminRole
      */
     public function setAccessIds($accessIds)
     {
@@ -132,7 +133,7 @@ class AdminGroup
      *
      * @param string $accessList
      *
-     * @return AdminGroup
+     * @return AdminRole
      */
     public function setAccessList($accessList)
     {
@@ -156,7 +157,7 @@ class AdminGroup
      *
      * @param integer $status
      *
-     * @return AdminGroup
+     * @return AdminRole
      */
     public function setStatus($status)
     {

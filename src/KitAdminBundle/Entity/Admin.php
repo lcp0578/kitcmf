@@ -2,8 +2,8 @@
 namespace KitAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * User
@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="admin")
  * @ORM\Entity(repositoryClass="KitAdminBundle\Repository\AdminRepository")
  */
-class Admin implements UserInterface
+class Admin implements AdvancedUserInterface, \Serializable
 {
 
     /**
@@ -24,7 +24,7 @@ class Admin implements UserInterface
 
     /**
      *
-     * @var string @ORM\Column(name="username", type="string", length=60, unique=true, options={"comment": "用户名"})
+     * @var string @ORM\Column(name="username", type="string", length=60, unique=true, options={"comment": "鐢ㄦ埛鍚�})
      */
     protected $username;
 
@@ -84,29 +84,39 @@ class Admin implements UserInterface
 
     /**
      *
-     * @var int @ORM\Column(name="admin_group_id", type="integer")
+     * @var int @ORM\Column(name="admin_role_id", type="integer")
      */
-    private $adminGroupId;
+    private $adminRoleId;
     
     /**
-     * Many admins have One group.
-     * @ORM\ManyToOne(targetEntity="AdminGroup", inversedBy="admins")
-     * @ORM\JoinColumn(name="admin_group_id", referencedColumnName="id")
+     * @ORM\Column(name="is_active", type="boolean")
      */
-    private $group;
+    private $isActive;
+    
+    /**
+     * @ORM\Column(name="last_login", type="datetimetz")
+     */
+    private $lastLogin;
+    
+    /**
+     * Many admins have One role.
+     * @ORM\ManyToOne(targetEntity="AdminRole", inversedBy="roles")
+     * @ORM\JoinColumn(name="admin_role_id", referencedColumnName="id")
+     */
+    private $role;
     
     public function __construct() {
-        $this->group = new ArrayCollection();
+        $this->role = new ArrayCollection();
     }
     
     /**
-     * Get group
+     * Get role
      *
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
-    public function getGroup()
+    public function getRole()
     {
-        return $this->group;
+        return $this->role;
     }
 
     /**
@@ -360,120 +370,38 @@ class Admin implements UserInterface
     }
 
     /**
-     * Set adminGroupId
+     * Set adminRoleId
      *
-     * @param integer $adminGroupId            
+     * @param integer $adminRoleId            
      *
      * @return User
      */
-    public function setAdminGroupId($adminGroupId)
+    public function setAdminRoleId($adminRoleId)
     {
-        $this->adminGroupId = $adminGroupId;
+        $this->adminRoleId = $adminRoleId;
         
         return $this;
     }
 
     /**
-     * Get adminGroupId
+     * Get adminRoleId
      *
      * @return int
      */
-    public function getAdminGroupId()
+    public function getAdminRoleId()
     {
-        return $this->adminGroupId;
+        return $this->adminRoleId;
     }
 
+   
     /**
-     * -----------------------------------------
      * 
-     * -----------------------------------------
+     * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isEnabled()
      */
-    
-    /**
-     * Gets the canonical username in search and sort queries.
-     *
-     * @return string
-     */
-    public function getUsernameCanonical()
-    {}
-
-    /**
-     * Sets the canonical username.
-     *
-     * @param string $usernameCanonical            
-     *
-     * @return self
-     */
-    public function setUsernameCanonical($usernameCanonical)
-    {}
-
-    /**
-     *
-     * @param string|null $salt            
-     */
-    public function setSalt($salt){}
-    public function getSalt(){}
-    /**
-     * Gets email.
-     *
-     * @return string
-     */
-    public function getEmail()
-    {}
-
-    /**
-     * Sets the email.
-     *
-     * @param string $email            
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {}
-
-    /**
-     * Gets the canonical email in search and sort queries.
-     *
-     * @return string
-     */
-    public function getEmailCanonical()
-    {}
-
-    /**
-     * Sets the canonical email.
-     *
-     * @param string $emailCanonical            
-     *
-     * @return self
-     */
-    public function setEmailCanonical($emailCanonical)
-    {}
-
-    /**
-     * Gets the plain password.
-     *
-     * @return string
-     */
-    public function getPlainPassword()
-    {}
-
-    /**
-     * Sets the plain password.
-     *
-     * @param string $password            
-     *
-     * @return self
-     */
-    public function setPlainPassword($password)
-    {}
-
-    /**
-     * Tells if the the given user has the super admin role.
-     *
-     * @return bool
-     */
-    public function isSuperAdmin()
-    {}
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
 
     /**
      *
@@ -482,56 +410,10 @@ class Admin implements UserInterface
      * @return self
      */
     public function setEnabled($boolean)
-    {}
-
-    /**
-     * Sets the super admin status.
-     *
-     * @param bool $boolean            
-     *
-     * @return self
-     */
-    public function setSuperAdmin($boolean)
-    {}
-
-    /**
-     * Gets the confirmation token.
-     *
-     * @return string
-     */
-    public function getConfirmationToken()
-    {}
-
-    /**
-     * Sets the confirmation token.
-     *
-     * @param string $confirmationToken            
-     *
-     * @return self
-     */
-    public function setConfirmationToken($confirmationToken)
-    {}
-
-    /**
-     * Sets the timestamp that the user requested a password reset.
-     *
-     * @param null|\DateTime $date            
-     *
-     * @return self
-     */
-    public function setPasswordRequestedAt(\DateTime $date = null)
-    {}
-
-    /**
-     * Checks whether the password reset request has expired.
-     *
-     * @param int $ttl
-     *            Requests older than this many seconds will be considered expired
-     *            
-     * @return int
-     */
-    public function isPasswordRequestNonExpired($ttl)
-    {}
+    {
+        $this->isActive = $boolean;
+        return $this;
+    }
 
     /**
      * Sets the last login time.
@@ -541,57 +423,21 @@ class Admin implements UserInterface
      * @return self
      */
     public function setLastLogin(\DateTime $time = null)
-    {}
-
+    {
+        $this->lastLogin = $time;
+        return $this;
+    }
+    
     /**
-     * Never use this to check if this user has access to anything!
-     *
-     * Use the AuthorizationChecker, or an implementation of AccessDecisionManager
-     * instead, e.g.
-     *
-     * $authorizationChecker->isGranted('ROLE_USER');
-     *
-     * @param string $role            
-     *
-     * @return bool
+     * Get the last login time
+     * 
+     * @return DateTime
      */
-    public function hasRole($role)
-    {}
-
-    /**
-     * Sets the roles of the user.
-     *
-     * This overwrites any previous roles.
-     *
-     * @param array $roles            
-     *
-     * @return self
-     */
-    public function setRoles(array $roles)
-    {}
-    public function getRoles()
-    {}
-
-    /**
-     * Adds a role to the user.
-     *
-     * @param string $role            
-     *
-     * @return self
-     */
-    public function addRole($role)
-    {}
-
-    /**
-     * Removes a role to the user.
-     *
-     * @param string $role            
-     *
-     * @return self
-     */
-    public function removeRole($role)
-    {}
-
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+    
     /**
      * Checks whether the user's account has expired.
      *
@@ -603,7 +449,9 @@ class Admin implements UserInterface
      * @see AccountExpiredException
      */
     public function isAccountNonExpired()
-    {}
+    {
+        return true;
+    }
 
     /**
      * Checks whether the user is locked.
@@ -616,7 +464,9 @@ class Admin implements UserInterface
      * @see LockedException
      */
     public function isAccountNonLocked()
-    {}
+    {
+        return true;
+    }
 
     /**
      * Checks whether the user's credentials (password) has expired.
@@ -629,7 +479,9 @@ class Admin implements UserInterface
      * @see CredentialsExpiredException
      */
     public function isCredentialsNonExpired()
-    {}
+    {
+        return true;
+    }
 
     /**
      * Checks whether the user is enabled.
@@ -642,10 +494,23 @@ class Admin implements UserInterface
      * @see DisabledException
      */
     public function isEnabled()
-    {}
-
+    {
+        return $this->isActive == true;
+    }
+    /**
+     * serialize
+     * 
+     * @see Serializable::serialize()
+     */
     public function serialize()
-    {}
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->isActive
+        ));
+    }
 
     /**
      *
@@ -653,7 +518,14 @@ class Admin implements UserInterface
      *            serialized
      */
     public function unserialize($serialized)
-    {}
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->isActive
+        ) = unserialize($serialized);
+    }
 
     /**
      * Removes sensitive data from the user.
