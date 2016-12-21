@@ -6,7 +6,7 @@ use KitAdminBundle\Entity\AdminRole;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
-class PostVoter extends Voter
+class AdminVoter extends Voter
 {
     // these strings are just invented: you can use anything
     const VIEW = 'view';
