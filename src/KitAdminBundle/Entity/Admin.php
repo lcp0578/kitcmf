@@ -24,7 +24,7 @@ class Admin implements AdvancedUserInterface, \Serializable
 
     /**
      *
-     * @var string @ORM\Column(name="username", type="string", length=60, unique=true, options={"comment": "鐢ㄦ埛鍚�})
+     * @var string @ORM\Column(name="username", type="string", length=60, unique=true, options={"comment": "用户名"})
      */
     protected $username;
 
@@ -33,7 +33,13 @@ class Admin implements AdvancedUserInterface, \Serializable
      * @var string @ORM\Column(name="password", type="string", length=120)
      */
     protected $password;
-
+    
+    /**
+     *
+     * @var string @ORM\Column(name="salt", type="string", length=8)
+     */
+    protected $salt;
+    
     /**
      *
      * @var string @ORM\Column(name="truename", type="string", length=30, nullable=true)
@@ -114,7 +120,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      *
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
-    public function getRole()
+    public function getRoles()
     {
         return $this->role;
     }
@@ -177,6 +183,30 @@ class Admin implements AdvancedUserInterface, \Serializable
         return $this->password;
     }
 
+    /**
+     * Set password salt
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    
+        return $this;
+    }
+    
+    /**
+     * Get password salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+    
     /**
      * Set truename
      *
@@ -393,16 +423,6 @@ class Admin implements AdvancedUserInterface, \Serializable
         return $this->adminRoleId;
     }
 
-   
-    /**
-     * 
-     * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isEnabled()
-     */
-    public function isEnabled()
-    {
-        return $this->isActive;
-    }
-
     /**
      *
      * @param bool $boolean            
@@ -495,7 +515,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      */
     public function isEnabled()
     {
-        return $this->isActive == true;
+        return $this->isActive;
     }
     /**
      * serialize

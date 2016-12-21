@@ -4,6 +4,7 @@ namespace KitAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
  * AdminRole
@@ -11,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="admin_role")
  * @ORM\Entity(repositoryClass="KitAdminBundle\Repository\AdminRoleRepository")
  */
-class AdminRole
+class AdminRole implements RoleInterface
 {
     /**
      * @var int
@@ -28,6 +29,13 @@ class AdminRole
      * @ORM\Column(name="name", type="string", length=64)
      */
     private $name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=64)
+     */
+    private $role;
 
     /**
      * @var string
@@ -104,6 +112,30 @@ class AdminRole
         return $this->name;
     }
 
+    /**
+     * Set role name
+     *
+     * @param string $role
+     *
+     * @return AdminRole
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+    
+    /**
+     * Get role name
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    
     /**
      * Set accessIds
      *
