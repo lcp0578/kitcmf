@@ -42,6 +42,10 @@ security:
             entity:
                 class: KitAdminBundle:ApiUser
     firewalls:
+        wsse_secured:
+            pattern: ^/api/
+            stateless: true
+            wsse: true
         main:
             pattern: ^/
             form_login:
@@ -52,8 +56,8 @@ security:
 
             http_basic:
                 provider: kit_api_provider
-            logout:       true
-            anonymous:    true
+            logout: true
+            anonymous: true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
