@@ -1,0 +1,3 @@
+kit_rbac_homepage:
+    path:     /
+    defaults: { _controller: KitRbacBundle:Default:index }
