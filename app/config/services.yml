@@ -9,6 +9,19 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
 services:
+    app.webservice_user_provider:
+        class: KitAdminBundle\Security\User\WebserviceUserProvider
+    wsse.security.authentication.provider:
+        class: KitAdminBundle\Security\Authentication\Provider\WsseProvider
+        arguments:
+            - '' # User Provider
+            - '@cache.app'
+        public: false
+
+    wsse.security.authentication.listener:
+        class: KitAdminBundle\Security\Firewall\WsseListener
+        arguments: ['@security.token_storage', '@security.authentication.manager']
+        public: false
     kit.menu_builder:
         class: Kit\MenuBundle\Menu\MenuBuilder
         arguments: ["@knp_menu.factory"]

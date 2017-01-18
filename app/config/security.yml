@@ -25,16 +25,27 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
+        KitAdminBundle\Security\User\WebserviceUser:
+            algorithm: bcrypt
+            cost: 12
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
+        webservice:
+            id: app.webservice_user_provider
         fos_userbundle:
             id: fos_user.user_provider.username
-
+        kit_api_provider:
+            entity:
+                class: KitAdminBundle:ApiUser
     firewalls:
+        wsse_secured:
+            pattern: ^/api/
+            stateless: true
+            wsse: true
         main:
             pattern: ^/
             form_login:
@@ -43,8 +54,10 @@ security:
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 
-            logout:       true
-            anonymous:    true
+            http_basic:
+                provider: kit_api_provider
+            logout: true
+            anonymous: true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

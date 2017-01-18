@@ -116,13 +116,15 @@ class Admin implements AdvancedUserInterface, \Serializable
     }
     
     /**
-     * Get role
+     * Get roles
      *
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function getRoles()
     {
-        return $this->role;
+        return array(
+            'ROLE_' .strtoupper($this->role->getRole)
+        );
     }
 
     /**
