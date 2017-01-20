@@ -51,8 +51,9 @@ kit_news:
 kit_admin:
     resource: "@KitAdminBundle/Resources/config/routing.yml"
     prefix:   /
+
 kit_rbac:
-    resource: "@KitAdminBundle/Resources/config/routing.yml"
+    resource: "@KitRbacBundle/Resources/config/routing.yml"
     prefix:   /admin/rbac
 
 kit_base:
