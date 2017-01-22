@@ -50,7 +50,7 @@ kit_news:
 
 kit_admin:
     resource: "@KitAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 kit_rbac:
     resource: "@KitRbacBundle/Resources/config/routing.yml"

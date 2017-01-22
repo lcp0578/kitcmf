@@ -1,12 +1,12 @@
 kit_admin_homepage:
-    path:     /admin
+    path:     /
     defaults: { _controller: KitAdminBundle:Default:index }
 kit_admin_list:
-    path:     /admin/list
+    path:     /list
     defaults: { _controller: KitAdminBundle:Default:list }
 kit_admin_add:
-    path:     /admin/add
+    path:     /add
     defaults: { _controller: KitAdminBundle:Default:add }
 kit_admin_add_success:
-    path:     /admin/add_success
+    path:     /add_success
     defaults: { _controller: KitAdminBundle:Default:addSuccess }

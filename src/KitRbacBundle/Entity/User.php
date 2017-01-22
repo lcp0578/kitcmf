@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="KitRbacBundle\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User
 {
@@ -31,14 +32,14 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=64, options={"comment": "用户密码"})
+     * @ORM\Column(name="password", type="string", length=60, options={"comment": "密码"})
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="salt", type="string", length=8, options={"comment": "随机盐值8位"})
+     * @ORM\Column(name="salt", type="string", length=8, options={"comment": "密码盐值，8位"})
      */
     private $salt;
 
@@ -73,7 +74,7 @@ class User
     /**
      * @var int
      *
-     * @ORM\Column(name="status", type="smallint", options={"comment": "状态，0禁用，1正常"})
+     * @ORM\Column(name="status", type="smallint", options={"comment": "状态，0禁用，1启用"})
      */
     private $status;
 
@@ -278,6 +279,27 @@ class User
     public function getStatus()
     {
         return $this->status;
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        if($this->getCreateAt() == null){
+            $this->setCreateAt(new \DateTime());
+        }
+        if($this->getPassword() != null){
+            $this->setSalt(substr(md5(time()), 0, 8));
+            $this->setPassword(password_hash($this->getPassword() . $this->getSalt(), PASSWORD_BCRYPT ));
+        }
+        $this->setUpdateAt(new \DateTime());
+    }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->setUpdateAt(new \DateTime());
     }
 }
 
