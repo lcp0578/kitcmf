@@ -27,17 +27,21 @@ class DefaultController extends BaseController
         $user = new User();
         
         $form = $this->createFormBuilder($user)
-            ->add('username')
-            ->add('password', PasswordType::class)
-            ->add('role_id')
+            ->add('username', null, ['label' => '用户名'])
+            ->add('password', PasswordType::class, ['label' => '密码'])
+            ->add('role_id', null, ['label' => '用户组'])
             ->add('status', ChoiceType::class, [
                 'choices'  => [
                     '启用' => 1,
                     '禁用' => 0
                 ],
-                'expanded' => true
+                'expanded' => true,
+                'label' => '状态',
+                'choice_attr' => [
+                    'class' =>'field'
+                    ]
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, ['label' => '提交'])
             ->getForm();
         
         $form->handleRequest($request);
