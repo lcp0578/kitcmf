@@ -37,8 +37,8 @@ class DefaultController extends BaseController
                 ],
                 'expanded' => true,
                 'label' => '状态',
-                'choice_attr' => [
-                    'class' =>'field'
+                'label_attr' => [
+                    'class' =>'radio-inline'
                     ]
             ])
             ->add('submit', SubmitType::class, ['label' => '提交'])
