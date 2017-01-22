@@ -30,15 +30,16 @@
     	                    <a class="button button-little bg-yellow" href="login.html">注销登录</a>
     	                </span>
     	                {%set menuList = knp_menu_get('KitMenuBundle:AdminBuilder:mainMenu')%}
+    	                {% set currentMenu = knp_menu_get_current_item(menuList) %}
     	                {%if menuList.children is defined and menuList.children is not empty %}
     					<ul class="nav nav-inline admin-nav">
                            {%for v in menuList.children %}
-    						<li {% if v.uri == app.request.requestUri %}class="active"{% endif %}>
+    						<li {% if app.request.requestUri == v.uri or currentMenu.parent.uri == v.uri%}class="active"{% endif %}>
     						  <a href="{{ v.uri }}" class="{{ v.attributes.icon }}">&nbsp;{{ v.label }}</a>
     						  {%if v.children is defined and v.children is not empty %}
     						      <ul>
     						          {%for vv in v.children %}
-								        <li><a href="system.html">系统设置</a></li>
+								        <li {% if vv.uri == app.request.requestUri %}class="active"{% endif %}><a href="{{ vv.uri }}">{{ vv.label }}</a></li>
 								      {% endfor %}
 								  </ul>
     						  {% endif %}

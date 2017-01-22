@@ -2,8 +2,8 @@ kit_rbac_homepage:
     path:     /
     defaults: { _controller: KitRbacBundle:Default:index }
 kit_rbac_add:
-    path:     /
+    path:     /add
     defaults: { _controller: KitRbacBundle:Default:add }
 kit_rbac_del:
-    path:     /
+    path:     /del
     defaults: { _controller: KitRbacBundle:Default:del }

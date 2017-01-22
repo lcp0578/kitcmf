@@ -31,7 +31,10 @@ class AdminBuilder implements ContainerAwareInterface
 		        'icon' => 'icon-home'
 		    ]
 		]);
-
+		$menu['index']->addChild('rabc', [
+		    'route' => 'kit_rbac_del',
+		    'label' => '删除管理员'
+		]);
 		// access services from the container!
 		//$em = $this->container->get('doctrine')->getManager();
 		// findMostRecent and Blog are just imaginary examples
@@ -45,6 +48,14 @@ class AdminBuilder implements ContainerAwareInterface
 		    ]
 			//'routeParameters' => array('id' => $blog->getId())
 		));
+		$menu['system']->addChild('rabc', [
+		    'route' => 'kit_rbac_homepage',
+		    'label' => '管理员列表'
+		]);
+		$menu['system']->addChild('rabc_add', [
+		    'route' => 'kit_rbac_add',
+		    'label' => '新增管理员'
+		]);
 		return $menu;
 	}
 
