@@ -27,4 +27,5 @@ services:
         arguments: ["@knp_menu.factory"]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main } # The alias is what is used to retrieve the menu
-            - { name: knp_menu.menu_builder, method: createSidebarMenu, alias: sidebar } # Named "sidebar" this time
+            - { name: knp_menu.menu_builder, method: createSidebarIndexMenu, alias: sidebar_index }
+            - { name: knp_menu.menu_builder, method: createSidebarRbacMenu, alias: sidebar_rbac }

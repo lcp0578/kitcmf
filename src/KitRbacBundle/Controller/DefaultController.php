@@ -10,4 +10,15 @@ class DefaultController extends Controller
     {
         return $this->render('KitRbacBundle:Default:index.html.twig');
     }
+    
+    public function addAction()
+    {
+        return $this->render('KitRbacBundle:Default:index.html.twig');
+    }
+    
+    
+    public function delAction()
+    {
+        return $this->render('KitRbacBundle:Default:index.html.twig');
+    }
 }
