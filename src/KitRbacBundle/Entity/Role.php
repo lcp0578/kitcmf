@@ -35,6 +35,7 @@ class Role
      * @var string
      *
      * @ORM\Column(name="note", type="string", length=255, options={"comment": "角色备注"})
+     * @Assert\NotBlank(message="角色备注不能为空")
      */
     private $note;
 

@@ -2822,5 +2822,34 @@
             "compression",
             "minification"
         ]
+    },
+    {
+        "name": "stil/cool-captcha",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stil/cool-captcha.git",
+            "reference": "f51e501c4f1110887a19a34ed3d173febcd6d801"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stil/cool-captcha/zipball/f51e501c4f1110887a19a34ed3d173febcd6d801",
+            "reference": "f51e501c4f1110887a19a34ed3d173febcd6d801",
+            "shasum": ""
+        },
+        "time": "2015-01-02 22:22:06",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "CoolCaptcha\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "Classes generating fancy image captchas using GD extension."
     }
 ]

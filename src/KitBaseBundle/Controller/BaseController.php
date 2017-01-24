@@ -4,6 +4,7 @@ namespace KitBaseBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Form;
 
 class BaseController extends Controller
 {
@@ -21,7 +22,23 @@ class BaseController extends Controller
         // 'main' => $menuBulider->createMainMenu([]),
         );
     }
-
+    protected function serializeFormErrors(Form $form)
+    {
+        $errors = [];
+        /**
+         * @var  $key
+         * @var Form $child
+        */
+        foreach ($form->all() as $key => $child) {
+            if (!$child->isValid()) {
+                foreach ($child->getErrors() as $error) {
+                    $errors[$key] = $error->getMessage();
+                }
+            }
+        }
+    
+        return $errors;
+    }
     /**
      * Get Entity Manager
      * 

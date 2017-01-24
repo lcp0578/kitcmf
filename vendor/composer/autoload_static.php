@@ -79,6 +79,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
         ),
+        'C' => 
+        array (
+            'CoolCaptcha\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -213,6 +217,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
+        ),
+        'CoolCaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stil/cool-captcha/src',
         ),
     );
 

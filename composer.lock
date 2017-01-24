@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "47a96a4e24278417e212eaeaad103921",
-    "content-hash": "dd514f727bd12aed4705c6b10df2b508",
+    "hash": "ec2b45c6c3f216d415f5881df247380d",
+    "content-hash": "30d7c87489e658e7d73f596b2a91df5c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1663,6 +1663,33 @@
             ],
             "description": "A security checker for your composer.lock",
             "time": "2016-09-23 18:09:57"
+        },
+        {
+            "name": "stil/cool-captcha",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stil/cool-captcha.git",
+                "reference": "f51e501c4f1110887a19a34ed3d173febcd6d801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stil/cool-captcha/zipball/f51e501c4f1110887a19a34ed3d173febcd6d801",
+                "reference": "f51e501c4f1110887a19a34ed3d173febcd6d801",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CoolCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "Classes generating fancy image captchas using GD extension.",
+            "time": "2015-01-02 22:22:06"
         },
         {
             "name": "swiftmailer/swiftmailer",
