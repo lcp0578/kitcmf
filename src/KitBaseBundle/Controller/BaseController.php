@@ -22,6 +22,12 @@ class BaseController extends Controller
         // 'main' => $menuBulider->createMainMenu([]),
         );
     }
+    /**
+     * 格式化form表单的错误
+     * 
+     * @param Form $form
+     * @return array
+     */
     protected function serializeFormErrors(Form $form)
     {
         $errors = [];
