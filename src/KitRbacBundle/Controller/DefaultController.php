@@ -53,7 +53,7 @@ class DefaultController extends BaseController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->redirectToRoute('kit_rbac_homepage');
+            $this->redirectToRoute('kit_rbac_user');
         }
         return $this->render('KitRbacBundle:Default:add.html.twig', [
             'form' => $form->createView()

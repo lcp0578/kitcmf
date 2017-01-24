@@ -3,12 +3,14 @@
 namespace KitRbacBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Role
  *
  * @ORM\Table(name="role")
  * @ORM\Entity(repositoryClass="KitRbacBundle\Repository\RoleRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Role
 {
@@ -25,6 +27,7 @@ class Role
      * @var string
      *
      * @ORM\Column(name="rolename", type="string", length=32, options={"comment": "角色名称"})
+     * @Assert\NotBlank(message="角色名称不能为空")
      */
     private $rolename;
 
@@ -216,6 +219,23 @@ class Role
     public function getIp()
     {
         return $this->ip;
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        if($this->getCreateAt() == null){
+            $this->setCreateAt(new \DateTime());
+        }
+        $this->setUpdateAt(new \DateTime());
+    }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->setUpdateAt(new \DateTime());
     }
 }
 

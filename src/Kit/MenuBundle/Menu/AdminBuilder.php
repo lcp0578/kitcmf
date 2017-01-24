@@ -32,7 +32,7 @@ class AdminBuilder implements ContainerAwareInterface
 		    ]
 		]);
 		$menu['index']->addChild('rabc', [
-		    'route' => 'kit_rbac_del',
+		    'route' => 'kit_rbac_user_del',
 		    'label' => '删除管理员'
 		]);
 		// access services from the container!
@@ -41,20 +41,28 @@ class AdminBuilder implements ContainerAwareInterface
 		//$blog = $em->getRepository('KitAdminBundle:Admin')->findMostRecent();
 
 		$menu->addChild('system', array(
-			'route' => 'kit_rbac_homepage',
+			'route' => 'kit_rbac_user',
 		    'label' => '系统',
 		    'attributes' =>[
 		        'icon' => 'icon-cog'
 		    ]
 			//'routeParameters' => array('id' => $blog->getId())
 		));
-		$menu['system']->addChild('rabc', [
-		    'route' => 'kit_rbac_homepage',
+		$menu['system']->addChild('rabc_user', [
+		    'route' => 'kit_rbac_user',
 		    'label' => '管理员列表'
 		]);
-		$menu['system']->addChild('rabc_add', [
-		    'route' => 'kit_rbac_add',
+		$menu['system']->addChild('rabc_user_add', [
+		    'route' => 'kit_rbac_user_add',
 		    'label' => '新增管理员'
+		]);
+		$menu['system']->addChild('rabc_role', [
+		    'route' => 'kit_rbac_role',
+		    'label' => '用户组列表'
+		]);
+		$menu['system']->addChild('rabc_role_add', [
+		    'route' => 'kit_rbac_role_add',
+		    'label' => '新增用户组'
 		]);
 		return $menu;
 	}

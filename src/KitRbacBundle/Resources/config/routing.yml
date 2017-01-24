@@ -1,9 +1,18 @@
-kit_rbac_homepage:
+kit_rbac_user:
     path:     /
     defaults: { _controller: KitRbacBundle:Default:index }
-kit_rbac_add:
+kit_rbac_user_add:
     path:     /add
     defaults: { _controller: KitRbacBundle:Default:add }
-kit_rbac_del:
+kit_rbac_user_del:
     path:     /del
     defaults: { _controller: KitRbacBundle:Default:del }
+kit_rbac_role:
+    path:     /role
+    defaults: { _controller: KitRbacBundle:Role:index }
+kit_rbac_role_add:
+    path:     /role/add
+    defaults: { _controller: KitRbacBundle:Role:add }
+kit_rbac_role_del:
+    path:     /role/del
+    defaults: { _controller: KitRbacBundle:Role:del }
