@@ -16,12 +16,15 @@ class RoleController extends BaseController
         if($page < 1) $page = 1;
         $pagesize = 5;
         $repository = $this->getDoctrine()->getRepository('KitRbacBundle:Role');
-        $list = $repository->getList(false, $page, $pagesize);
+        $list = $repository->getList();
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $list,
+            $page,
+            $pagesize
+        );
         return $this->render('KitRbacBundle:Role:index.html.twig', [
-            'list' => $list,
-            'pageTotal' => 10,
-            'pageCurrent' => $page,
-            'routename' => 'kit_rbac_role'
+            'pagination' => $pagination
         ]);
     }
 

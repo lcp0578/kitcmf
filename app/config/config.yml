@@ -89,3 +89,10 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: pagination.html.twig     # sliding pagination controls template
