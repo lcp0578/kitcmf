@@ -13,12 +13,17 @@ class RoleController extends BaseController
 
     public function indexAction()
     {
-        return $this->render('KitRbacBundle:Role:index.html.twig');
+        $repository = $this->getDoctrine()->getRepository('KitRbacBundle:Role');
+        $list = $repository->getList();
+        return $this->render('KitRbacBundle:Role:index.html.twig', [
+            'list' => $list
+        ]);
     }
+
     /**
      * add user
-     * 
-     * @param Request $request
+     *
+     * @param Request $request            
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
@@ -28,35 +33,40 @@ class RoleController extends BaseController
         $role = new Role();
         
         $form = $this->createFormBuilder($role)
-            ->add('rolename', null, ['label' => '用户组名称'])
-            ->add('note', null, ['label' => '备注'])
+            ->add('rolename', null, [
+            'label' => '用户组名称'
+        ])
+            ->add('note', null, [
+            'label' => '备注'
+        ])
             ->add('status', ChoiceType::class, [
-                'choices'  => [
-                    '启用' => 1,
-                    '禁用' => 0
-                ],
-                'expanded' => true,
-                'label' => '状态',
-                'label_attr' => [
-                    'class' =>'radio-inline'
-                    ]
-            ])
-            ->add('submit', SubmitType::class, ['label' => '提交'])
+            'choices' => [
+                '启用' => 1,
+                '禁用' => 0
+            ],
+            'expanded' => true,
+            'label' => '状态',
+            'label_attr' => [
+                'class' => 'radio-inline'
+            ]
+        ])
+            ->add('submit', SubmitType::class, [
+            'label' => '提交'
+        ])
             ->getForm();
         
         $form->handleRequest($request);
         
         if ($form->isSubmitted()) {
-            if($form->isValid()){
+            if ($form->isValid()) {
                 /**
                  */
                 $role = $form->getData();
                 $role->setIp($request->getClientIp());
-                $em = $this->getDoctrine()->getManager();
                 $em->persist($role);
                 $em->flush();
                 return $this->msgResponse(0, '恭喜', '添加成功', 'kit_rbac_role');
-            }else{
+            } else {
                 $errors = $this->serializeFormErrors($form);
             }
         }

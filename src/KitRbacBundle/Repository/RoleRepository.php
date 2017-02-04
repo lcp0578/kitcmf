@@ -10,4 +10,20 @@ namespace KitRbacBundle\Repository;
  */
 class RoleRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    public function getList($status = false, $page = false, $pagesize = false)
+    {
+        $query = $this->getEntityManager()->createQuery();
+        if($status !== false){
+            $query->setDQL('SELECT r FROM KitRbacBundle:Role r WHERE r.status = :status ORDER BY r.id DESC')->setParameter('status', $status);
+        }else{
+            $query->setDQL('SELECT r FROM KitRbacBundle:Role r ORDER BY r.id DESC');
+        }
+        
+        if(false !== $page && false !== $pagesize){
+            $offset = ($page - 1) * $pagesize;
+            $query->setMaxResults($pagesize)->setFirstResult($offset);
+        }
+        return $query->getResult();
+    }
 }
