@@ -1,0 +1,14 @@
+{% if pageTotal > 1 %}
+<div class="panel-foot text-center">
+	<ul class="pagination">
+		<li><a href="#">上一页</a></li>
+	</ul>
+	<ul class="pagination pagination-group">
+	   {% for p in 1..pageTotal %}
+		<li {% if p == pageCurrent  %}class="active" {% endif %}><a href="{{ path(routename,  { 'page' : p }) }}">{{ p }}</a></li>
+	   {% endfor %}
+	</ul>
+	<ul class="pagination">
+		<li><a href="#">下一页</a></li>
+	</ul>
+</div>
