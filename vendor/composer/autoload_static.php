@@ -60,6 +60,7 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         'K' => 
         array (
             'Knp\\Menu\\' => 9,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
             'Knp\\Bundle\\MenuBundle\\' => 22,
         ),
         'I' => 
@@ -182,6 +183,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu/src/Knp/Menu',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Knp\\Bundle\\MenuBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle',
@@ -255,6 +260,13 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
             'Michelf' => 
             array (
                 0 => __DIR__ . '/..' . '/michelf/php-markdown',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'J' => 

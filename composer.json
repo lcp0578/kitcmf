@@ -26,7 +26,8 @@
         "knplabs/knp-menu-bundle": "^2.0",
         "nelmio/api-doc-bundle": "^2.13",
         "symfony/assetic-bundle": "^2.8",
-        "stil/cool-captcha": "^0.1.0"
+        "stil/cool-captcha": "^0.1.0",
+        "knplabs/knp-paginator-bundle": "^2.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -65,6 +66,12 @@
         },
         "branch-alias": {
             "dev-master": "3.2-dev"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
         }
     }
 }
