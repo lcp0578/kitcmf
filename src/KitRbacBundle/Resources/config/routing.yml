@@ -10,6 +10,8 @@ kit_rbac_user_del:
 kit_rbac_role:
     path:     /role/{page}
     defaults: { _controller: KitRbacBundle:Role:index, page: 1 }
+    requirements:
+        page: '\d+'
 kit_rbac_role_add:
     path:     /role/add
     defaults: { _controller: KitRbacBundle:Role:add }
