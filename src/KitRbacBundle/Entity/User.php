@@ -77,7 +77,12 @@ class User
      * @ORM\Column(name="status", type="smallint", options={"comment": "状态，0禁用，1启用"})
      */
     private $status;
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="user")
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     */
+    private $role;
 
     /**
      * Get id
@@ -234,28 +239,49 @@ class User
     }
 
     /**
+     * Set role
+     *
+     * @param Roles $role
+     * @return User
+     */
+    public function setRole(Role $role = null)
+    {
+        $this->role = $role;
+        return $this;
+    }
+    
+    /**
+     * Get role
+     *
+     * @return Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    /**
      * Set roleId
      *
      * @param integer $roleId
      *
      * @return User
      */
-    public function setRoleId($roleId)
-    {
-        $this->roleId = $roleId;
+//     public function setRoleId()
+//     {
+//         $this->roleId = $this->role->getId();
 
-        return $this;
-    }
+//         return $this;
+//     }
 
     /**
      * Get roleId
      *
      * @return int
      */
-    public function getRoleId()
-    {
-        return $this->roleId;
-    }
+//     public function getRoleId()
+//     {
+//         return $this->roleId;
+//     }
 
     /**
      * Set status

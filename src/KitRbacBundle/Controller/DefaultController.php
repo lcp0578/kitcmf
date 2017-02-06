@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DefaultController extends BaseController
 {
@@ -29,7 +30,11 @@ class DefaultController extends BaseController
         $form = $this->createFormBuilder($user)
             ->add('username', null, ['label' => '用户名'])
             ->add('password', PasswordType::class, ['label' => '密码'])
-            ->add('role_id', null, ['label' => '用户组'])
+            ->add('role', EntityType::class, [
+                'class' => 'KitRbacBundle:Role',
+                'choice_label' => 'rolename',
+                'label' => '用户组'
+            ])
             ->add('status', ChoiceType::class, [
                 'choices'  => [
                     '启用' => 1,
@@ -45,15 +50,18 @@ class DefaultController extends BaseController
             ->getForm();
         
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            /**
-             */
-            $user = $form->getData();
-            $user->setIp($request->getClientIp());
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            $this->redirectToRoute('kit_rbac_user');
+        if ($form->isSubmitted()) {
+            if($form->isValid()){
+                /**
+                 */
+                $user = $form->getData();
+                $user->setIp($request->getClientIp());
+                $em->persist($user);
+                $em->flush();
+                $this->redirectToRoute('kit_rbac_user');
+            }else{
+                $errors = $this->serializeFormErrors($form);
+            }
         }
         return $this->render('KitRbacBundle:Default:add.html.twig', [
             'form' => $form->createView()

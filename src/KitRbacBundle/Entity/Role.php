@@ -4,6 +4,7 @@ namespace KitRbacBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Role
@@ -67,7 +68,15 @@ class Role
      */
     private $ip;
 
+    /**
+     * @ORM\OneToMany(targetEntity="User", mappedBy="role")
+     */
+    private $users;
 
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
     /**
      * Get id
      *
