@@ -24,6 +24,7 @@ class DefaultController extends BaseController
      */
     public function addAction(Request $request)
     {
+        $errors = [];
         $em = $this->getEntityManager();
         $user = new User();
         
@@ -58,13 +59,14 @@ class DefaultController extends BaseController
                 $user->setIp($request->getClientIp());
                 $em->persist($user);
                 $em->flush();
-                $this->redirectToRoute('kit_rbac_user');
+                return $this->msgResponse(0, '恭喜', '添加成功', 'kit_rbac_user');
             }else{
                 $errors = $this->serializeFormErrors($form);
             }
         }
         return $this->render('KitRbacBundle:Default:add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'errors' => $errors
         ]);
     }
 

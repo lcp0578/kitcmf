@@ -5,6 +5,7 @@ namespace KitRbacBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Role
@@ -12,6 +13,10 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="role")
  * @ORM\Entity(repositoryClass="KitRbacBundle\Repository\RoleRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"rolename"},
+ *     message="角色名称已存在"
+ * )
  */
 class Role
 {

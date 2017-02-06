@@ -3,6 +3,8 @@
 namespace KitRbacBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
@@ -10,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="KitRbacBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"username"},
+ *     message="用户名已存在"
+ * )
  */
 class User
 {
@@ -26,6 +32,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=32, unique=true, options={"comment": "用户名"})
+     * @Assert\NotBlank(message="用户名不能为空")
      */
     private $username;
 

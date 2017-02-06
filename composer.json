@@ -69,11 +69,5 @@
         "branch-alias": {
             "dev-master": "3.2-dev"
         }
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        }
     }
 }
