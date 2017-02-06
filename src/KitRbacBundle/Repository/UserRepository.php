@@ -10,4 +10,9 @@ namespace KitRbacBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getList($status = false, $page = false, $pagesize = false)
+    {
+        $queryBuilder = $this->createQueryBuilder('u');
+        return $queryBuilder->select();
+    }
 }
