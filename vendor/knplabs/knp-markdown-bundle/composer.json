@@ -1,0 +1,45 @@
+{
+    "name":        "knplabs/knp-markdown-bundle",
+    "type":        "symfony-bundle",
+    "description": "Knplabs markdown bundle transforms markdown into html",
+    "keywords":    ["markdown", "knplabs", "knp", "bundle"],
+    "homepage":    "http://github.com/KnpLabs/KnpMarkdownBundle",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name": "KnpLabs Team",
+            "homepage": "http://knplabs.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle/contributors"
+        }
+    ],
+
+    "require": {
+        "php":                      ">=5.3.9",
+        "symfony/framework-bundle": "~2.3|~3.0",
+        "symfony/dependency-injection": "~2.3|~3.0",
+        "michelf/php-markdown":     "~1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit":          "~4.5"
+    },
+    "suggest": {
+        "symfony/twig-bundle": "to use the Twig markdown filter",
+        "ext-sundown": "to use optional support for php-sundown extension instead of php implementation"
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.4.x-dev"
+        }
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Knp\\Bundle\\MarkdownBundle\\": ""
+        }
+    }
+}

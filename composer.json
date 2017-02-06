@@ -27,7 +27,9 @@
         "nelmio/api-doc-bundle": "^2.13",
         "symfony/assetic-bundle": "^2.8",
         "stil/cool-captcha": "^0.1.0",
-        "knplabs/knp-paginator-bundle": "^2.5"
+        "knplabs/knp-paginator-bundle": "^2.5",
+        "friendsofsymfony/elastica-bundle": "^3.2",
+        "knplabs/knp-markdown-bundle": "^1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

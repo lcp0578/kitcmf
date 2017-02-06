@@ -62,6 +62,7 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
             'Knp\\Menu\\' => 9,
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
             'Knp\\Bundle\\MenuBundle\\' => 22,
+            'Knp\\Bundle\\MarkdownBundle\\' => 26,
         ),
         'I' => 
         array (
@@ -71,6 +72,11 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             'FOS\\UserBundle\\' => 15,
             'FOS\\RestBundle\\' => 15,
+            'FOS\\ElasticaBundle\\' => 19,
+        ),
+        'E' => 
+        array (
+            'Elastica\\' => 9,
         ),
         'D' => 
         array (
@@ -191,6 +197,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle',
         ),
+        'Knp\\Bundle\\MarkdownBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-markdown-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -202,6 +212,14 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         'FOS\\RestBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
+        ),
+        'FOS\\ElasticaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/elastica-bundle',
+        ),
+        'Elastica\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ruflin/elastica/lib/Elastica',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
