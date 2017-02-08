@@ -10,9 +10,14 @@ namespace KitRbacBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getList($status = false, $page = false, $pagesize = false)
+    
+    public function getList()
     {
-        $queryBuilder = $this->createQueryBuilder('u');
-        return $queryBuilder->select();
+        $query = $this->getEntityManager()->createQuery(
+                'SELECT u.id, u.username,u.createAt,u.updateAt, r.rolename FROM KitRbacBundle:User u 
+                JOIN u.role r
+                WHERE u.status = :status'
+            )->setParameter('status', 1);
+        return $query->getResult();
     }
 }

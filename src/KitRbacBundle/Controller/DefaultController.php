@@ -14,7 +14,11 @@ class DefaultController extends BaseController
 
     public function indexAction()
     {
-        return $this->render('KitRbacBundle:Default:index.html.twig');
+        $reposity = $this->getDoctrine()->getRepository('KitRbacBundle:User');
+        $users = $reposity->getList();
+        return $this->render('KitRbacBundle:Default:index.html.twig', [
+            'users' => $users
+        ]);
     }
     /**
      * add user
