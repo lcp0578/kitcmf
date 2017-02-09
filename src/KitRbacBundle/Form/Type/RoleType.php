@@ -29,6 +29,10 @@ class RoleType extends AbstractType
                 'class' => 'radio-inline'
             ]
         ])
+//             ->add('test', null, [
+//                 'label' => 'test',
+//                 'mapped' => false
+//         ])
             ->add('submit', SubmitType::class, [
             'label' => '提交'
         ]);
