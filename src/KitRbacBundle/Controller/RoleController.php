@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use KitRbacBundle\Form\Type\RoleType;
 
 class RoleController extends BaseController
 {
@@ -39,7 +40,8 @@ class RoleController extends BaseController
         $em = $this->getEntityManager();
         $errors = [];
         $role = new Role();
-        
+        $form = $this->createForm(RoleType::class, $role);
+        /**
         $form = $this->createFormBuilder($role)
             ->add('rolename', null, [
             'label' => '用户组名称'
@@ -62,7 +64,7 @@ class RoleController extends BaseController
             'label' => '提交'
         ])
             ->getForm();
-        
+        **/
         $form->handleRequest($request);
         
         if ($form->isSubmitted()) {
