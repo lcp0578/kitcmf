@@ -10,4 +10,12 @@ namespace KitNewsBundle\Repository;
  */
 class ClassifyRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getParentClassify()
+    {
+        return $this->createQueryBuilder('c')
+                    ->select('c.id', 'c.name')
+                    ->where('c.pid = 0')
+                    ->andWhere('c.status = 1')
+                    ->orderBy('c.id', 'DESC');
+    }
 }

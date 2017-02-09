@@ -80,6 +80,14 @@ class AdminBuilder implements ContainerAwareInterface
 			'route' => 'kit_news_add',
 			'label' => '新增文章'
 		]);
+		$menu['news']->addChild('classify_list', [
+		    'route' => 'kit_news_classify',
+		    'label' => '分类列表'
+		]);
+		$menu['news']->addChild('classify_add', [
+		    'route' => 'kit_news_classify_add',
+		    'label' => '新增分类'
+		]);
 		return $menu;
 	}
 

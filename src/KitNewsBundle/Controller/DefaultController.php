@@ -2,7 +2,6 @@
 
 namespace KitNewsBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use KitBaseBundle\Controller\BaseController;
 use KitNewsBundle\Form\Type\NewsContentType;
 use KitNewsBundle\Entity\NewsContent;

@@ -3,6 +3,7 @@
 namespace KitNewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Classify
@@ -56,7 +57,28 @@ class Classify
      */
     private $updateAt;
 
-
+    /**
+     * One Category has Many Categories.
+     * 
+     * @ORM\ManyToOne(targetEntity="Classify", inversedBy="children")
+     * @ORM\JoinColumn(name="pid", referencedColumnName="id")
+     */
+    private $parent;
+    
+    /**
+     * Many Categories have One Category.
+     * 
+     * @ORM\OneToMany(targetEntity="Classify", mappedBy="parent")
+     */
+    private $children;
+    
+    /**
+     * 
+     */
+    public function __construct()
+    {
+        $this->children = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -92,27 +114,27 @@ class Classify
     }
 
     /**
-     * Set pid
+     * Set parent
      *
-     * @param integer $pid
+     * @param Classify $pid
      *
      * @return Classify
      */
-    public function setPid($pid)
+    public function setParent(Classify $parent)
     {
-        $this->pid = $pid;
+        $this->parent = $parent;
 
         return $this;
     }
 
     /**
-     * Get pid
+     * Get parent
      *
-     * @return int
+     * @return Classify
      */
-    public function getPid()
+    public function getParent()
     {
-        return $this->pid;
+        return $this->parent;
     }
 
     /**
