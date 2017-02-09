@@ -274,6 +274,7 @@
     {%- endif %}
 {%- endblock form_errors %}
 {% block fulltext_widget %}
+    <div class="field">
     {% for attrname, attrvalue in attr %}
         {% if attrname == 'id' %}
             <script type="text/plain" id="{{ attrvalue }}" style="width:{{ attr.width }};height:{{ attr.height }};">
@@ -283,4 +284,5 @@
             <p>{{ attr.placeholder }}</p>
     {% endif%}
     </script>
+    </div>
 {% endblock fulltext_widget %}

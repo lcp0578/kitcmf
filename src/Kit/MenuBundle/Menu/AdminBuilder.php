@@ -64,6 +64,22 @@ class AdminBuilder implements ContainerAwareInterface
 		    'route' => 'kit_rbac_role_add',
 		    'label' => '新增用户组'
 		]);
+		
+		$menu->addChild('news', array(
+		    'route' => 'kit_news_list',
+		    'label' => '文章',
+		    'attributes' =>[
+		        'icon' => 'icon-tasks'
+		    ]
+		));
+		$menu['news']->addChild('news_list', [
+		    'route' => 'kit_news_list',
+		    'label' => '文章列表'
+		]);
+		$menu['news']->addChild('news_add', [
+			'route' => 'kit_news_add',
+			'label' => '新增文章'
+		]);
 		return $menu;
 	}
 
