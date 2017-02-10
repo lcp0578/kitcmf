@@ -116,8 +116,10 @@
 {%- endblock dateinterval_widget -%}
 
 {% block choice_widget_collapsed -%}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) %}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' input')|trim}) %}
+    <div class="field">
     {{- parent() -}}
+    </div>
 {%- endblock %}
 
 {% block choice_widget_expanded -%}

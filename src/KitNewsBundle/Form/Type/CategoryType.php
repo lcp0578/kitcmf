@@ -7,6 +7,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use KitNewsBundle\Repository\CategoryRepository;
 use KitNewsBundle\Entity\Category;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CategoryType extends AbstractType
 {
@@ -18,11 +20,26 @@ class CategoryType extends AbstractType
                 'query_builder' => function(CategoryRepository $repo){
                     return $repo->getParentCategory();
                 },
-                //'choice_label' => 'name',
+                'choice_label' => 'name',
                 'label' => '用户组'
             ])
             ->add('name', null, [
                 'label' => '分类名称'
+            ])
+            ->add('status', ChoiceType::class, [
+                'choices' => [
+                '启用' => 1,
+                '禁用' => 0
+                ],
+                'expanded' => true,
+                'label' => '状态',
+                'data' => 1,
+                'label_attr' => [
+                    'class' => 'radio-inline'
+                ]
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => '提交'
             ]);
     }
     

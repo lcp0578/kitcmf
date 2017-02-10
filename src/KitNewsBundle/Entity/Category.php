@@ -4,12 +4,19 @@ namespace KitNewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Category
  *
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\CategoryRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"name"},
+ *     message="分类名称已存在"
+ *)
  */
 class Category
 {
@@ -26,6 +33,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=64, options={"comment": "类名称"})
+     * @Assert\NotBlank(message="类名称不能为空")
      */
     private $name;
 
@@ -207,6 +215,23 @@ class Category
     public function getUpdateAt()
     {
         return $this->updateAt;
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+       if($this->getCreateAt() == null){
+           $this->setCreateAt(new \DateTime());
+       } 
+       $this->setUpdateAt(new \DateTime());
+    }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->setUpdateAt(new \DateTime());
     }
 }
 

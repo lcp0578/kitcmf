@@ -5,8 +5,10 @@ kit_news_add:
     path:     /add
     defaults: { _controller: KitNewsBundle:Default:add }
 kit_news_category:
-    path:     /category
-    defaults: { _controller: KitNewsBundle:Category:index }
+    path:     /category/{page}
+    defaults: { _controller: KitNewsBundle:Category:index, page: 1 }
+    requirements:
+        page: '\d+'
 kit_news_category_add:
     path:     /category/add
     defaults: { _controller: KitNewsBundle:Category:add }
