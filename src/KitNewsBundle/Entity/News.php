@@ -73,9 +73,17 @@ class News
     /**
      * @var int
      *
-     * @ORM\Column(name="classify_id", type="integer", options={"comment": "分类ID"})
+     * @ORM\Column(name="category_id", type="integer", options={"comment": "分类ID"})
      */
-    private $classifyId;
+    private $categoryId;
+    
+    /**
+     * One news has one category
+     * 
+     * @ORM\OneToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
 
     /**
      * @var int
@@ -104,7 +112,8 @@ class News
      * @ORM\Column(name="level", type="smallint", options={"comment": "文章级别"})
      */
     private $level;
-
+    
+    
 
     /**
      * Get id
@@ -290,22 +299,22 @@ class News
      *
      * @return News
      */
-    public function setClassifyId($classifyId)
-    {
-        $this->classifyId = $classifyId;
+//     public function setClassifyId($classifyId)
+//     {
+//         $this->classifyId = $classifyId;
 
-        return $this;
-    }
+//         return $this;
+//     }
 
     /**
      * Get classifyId
      *
      * @return int
      */
-    public function getClassifyId()
-    {
-        return $this->classifyId;
-    }
+//     public function getClassifyId()
+//     {
+//         return $this->classifyId;
+//     }
 
     /**
      * Set contentId

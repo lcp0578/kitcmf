@@ -4,9 +4,9 @@ kit_news_list:
 kit_news_add:
     path:     /add
     defaults: { _controller: KitNewsBundle:Default:add }
-kit_news_classify:
-    path:     /classify
-    defaults: { _controller: KitNewsBundle:Classify:index }
-kit_news_classify_add:
-    path:     /classify/add
-    defaults: { _controller: KitNewsBundle:Classify:add }
+kit_news_category:
+    path:     /category
+    defaults: { _controller: KitNewsBundle:Category:index }
+kit_news_category_add:
+    path:     /category/add
+    defaults: { _controller: KitNewsBundle:Category:add }

@@ -14,8 +14,8 @@ class CategoryController extends BaseController
     
     public function addAction()
     {
-        $classify = new Category();
-        $form = $this->createForm(CategoryType::class, $classify);
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
         return $this->render('KitNewsBundle:Category:add.html.twig', [
             'form' => $form->createView()
         ]);

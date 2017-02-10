@@ -8,8 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Category
  *
- * @ORM\Table(name="classify")
- * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\ClassifyRepository")
+ * @ORM\Table(name="category")
+ * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\CategoryRepository")
  */
 class Category
 {
@@ -32,9 +32,9 @@ class Category
     /**
      * @var int
      *
-     * @ORM\Column(name="pid", type="integer", options={"comment": "父级ID"})
+     * @ORM\Column(name="parent_id", type="integer", options={"comment": "父级ID"})
      */
-    private $pid;
+    private $parentId;
 
     /**
      * @var int
@@ -61,7 +61,7 @@ class Category
      * One Category has Many Categories.
      * 
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
-     * @ORM\JoinColumn(name="pid", referencedColumnName="id")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     private $parent;
     
@@ -116,11 +116,11 @@ class Category
     /**
      * Set parent
      *
-     * @param Category $pid
+     * @param Category $parent
      *
      * @return Category
      */
-    public function setParent(Category $parent)
+    public function setParent(Category $parent = null)
     {
         $this->parent = $parent;
 
