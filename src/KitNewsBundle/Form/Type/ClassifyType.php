@@ -5,18 +5,18 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use KitNewsBundle\Repository\ClassifyRepository;
-use KitNewsBundle\Entity\Classify;
+use KitNewsBundle\Repository\CategoryRepository;
+use KitNewsBundle\Entity\Category;
 
-class ClassifyType extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder,array $options)
     {
         $builder
             ->add('parent', EntityType::class, [
-                'class' => 'KitNewsBundle:Classify',
-                'query_builder' => function(ClassifyRepository $repo){
-                    return $repo->getParentClassify();
+                'class' => 'KitNewsBundle:Category',
+                'query_builder' => function(CategoryRepository $repo){
+                    return $repo->getParentCategory();
                 },
                 //'choice_label' => 'name',
                 'label' => '用户组'
@@ -29,7 +29,7 @@ class ClassifyType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'KitNewsBundle\Entity\Classify'
+            'data_class' => 'KitNewsBundle\Entity\Category'
         ]);
     }
 }

@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Classify
+ * Category
  *
  * @ORM\Table(name="classify")
  * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\ClassifyRepository")
  */
-class Classify
+class Category
 {
     /**
      * @var int
@@ -60,7 +60,7 @@ class Classify
     /**
      * One Category has Many Categories.
      * 
-     * @ORM\ManyToOne(targetEntity="Classify", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
      * @ORM\JoinColumn(name="pid", referencedColumnName="id")
      */
     private $parent;
@@ -68,7 +68,7 @@ class Classify
     /**
      * Many Categories have One Category.
      * 
-     * @ORM\OneToMany(targetEntity="Classify", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
      */
     private $children;
     
@@ -94,7 +94,7 @@ class Classify
      *
      * @param string $name
      *
-     * @return Classify
+     * @return Category
      */
     public function setName($name)
     {
@@ -116,11 +116,11 @@ class Classify
     /**
      * Set parent
      *
-     * @param Classify $pid
+     * @param Category $pid
      *
-     * @return Classify
+     * @return Category
      */
-    public function setParent(Classify $parent)
+    public function setParent(Category $parent)
     {
         $this->parent = $parent;
 
@@ -130,7 +130,7 @@ class Classify
     /**
      * Get parent
      *
-     * @return Classify
+     * @return Category
      */
     public function getParent()
     {
@@ -142,7 +142,7 @@ class Classify
      *
      * @param integer $status
      *
-     * @return Classify
+     * @return Category
      */
     public function setStatus($status)
     {
@@ -166,7 +166,7 @@ class Classify
      *
      * @param \DateTime $createAt
      *
-     * @return Classify
+     * @return Category
      */
     public function setCreateAt($createAt)
     {
@@ -190,7 +190,7 @@ class Classify
      *
      * @param \DateTime $updateAt
      *
-     * @return Classify
+     * @return Category
      */
     public function setUpdateAt($updateAt)
     {
