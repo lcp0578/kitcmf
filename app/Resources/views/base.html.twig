@@ -34,7 +34,7 @@
     	                {%if menuList.children is defined and menuList.children is not empty %}
     					<ul class="nav nav-inline admin-nav">
                            {%for v in menuList.children %}
-    						<li {% if app.request.requestUri == v.uri or currentMenu.parent.uri == v.uri%}class="active"{% endif %}>
+    						<li {% if app.request.requestUri == v.uri or (currentMenu.parent.uri is defined and currentMenu.parent.uri == v.uri)%}class="active"{% endif %}>
     						  <a href="{{ v.uri }}" class="{{ v.attributes.icon }}">&nbsp;{{ v.label }}</a>
     						  {%if v.children is defined and v.children is not empty %}
     						      <ul>

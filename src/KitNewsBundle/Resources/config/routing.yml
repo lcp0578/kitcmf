@@ -12,3 +12,8 @@ kit_news_category:
 kit_news_category_add:
     path:     /category/add
     defaults: { _controller: KitNewsBundle:Category:add }
+kit_news_category_update:
+    path:     /category/update/{id}
+    defaults: { _controller: KitNewsBundle:Category:update }
+    requirements:
+        id: '\d+'

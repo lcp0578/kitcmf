@@ -14,8 +14,8 @@
 		<table class="table table-hover">
 			<tr>
 				<th width="45">选择</th>
-				<th width="120">角色名称</th>
-				<th width="*">角色备注</th>
+				<th width="120">分类名称</th>
+				<th width="*">修改时间</th>
 				<th width="100">状态</th>
 				<th width="100">操作</th>
 			</tr>
@@ -23,9 +23,9 @@
 			<tr>
 				<td><input type="checkbox" name="id" value="1" /></td>
 				<td>{{ item.name }}</td>
-				<td>{{ item.name }}</td>
+				<td>{{ item.updateAt | date('Y-m-d') }}</td>
 				<td>{% if item.status == 1 %}启用{% else %}禁用{% endif %}</td>
-				<td><a class="button border-blue button-little" href="#">修改</a> <a
+				<td><a class="button border-blue button-little" href="{{ path('kit_news_category_update', {'id': item.id}) }}">修改</a> <a
 					class="button border-yellow button-little" href="#" onclick="{
 					if(confirm('确认删除?')){return true;}returnfalse;}">删除</a></td>
 			</tr>
