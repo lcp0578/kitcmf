@@ -1,3 +1,7 @@
+kit_web:
+    resource: "@KitWebBundle/Resources/config/routing.yml"
+    prefix:   /
+
 kit_backup:
     resource: "@KitBackupBundle/Resources/config/routing.yml"
     prefix:   /

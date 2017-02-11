@@ -1,0 +1,3 @@
+kit_web_homepage:
+    path:     /
+    defaults: { _controller: KitWebBundle:Default:index }
