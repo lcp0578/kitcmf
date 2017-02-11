@@ -8,7 +8,7 @@
 		
 		{% block stylesheets %}
 		  <link rel="stylesheet" href="{{ asset('public/pintuer2/css/pintuer.css') }}">
-		  <link rel="stylesheet" href="{{ asset('public/static/css/base.css') }}">
+		  <link rel="stylesheet" href="{{ asset('static/css/base.css') }}">
 		{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="{{ asset('favicon.ico') }}" rel="bookmark icon" />
@@ -19,14 +19,11 @@
     	    {% block header %}
     	       {% include '@KitWeb/Common/header.html.twig' %}
     	    {% endblock %}
-    	    
-    	    {% block carousel %}
-    	    {% endblock %}
-    	    
     	    {% block nav %}
     	       {% include '@KitWeb/Common/nav.html.twig' %}
     	    {% endblock %}
-    	    
+    	    {% block carousel %}
+    	    {% endblock %}
     	    {% block content %}
     	    {% endblock %}
     	    
