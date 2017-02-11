@@ -4,49 +4,49 @@ kit_web:
 
 kit_backup:
     resource: "@KitBackupBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /backup
 
 kit_api:
     resource: "@KitApiBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /api
 
 kit_settings:
     resource: "@KitSettingsBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /setting
 
 kit_archive:
     resource: "@KitArchiveBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /archive
 
 kit_inquire:
     resource: "@KitInquireBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /inquire
 
 kit_analysis:
     resource: "@KitAnalysisBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /analysis
 
 kit_warning:
     resource: "@KitWarningBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /warning
 
 kit_monitor:
     resource: "@KitMonitorBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /monitor
 
 kit_menu:
     resource: "@KitMenuBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /menu
 
 kit_case:
     resource: "@KitCaseBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /case
 
 kit_user:
     resource: "@KitUserBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /user
 
 kit_news:
     resource: "@KitNewsBundle/Resources/config/routing.yml"

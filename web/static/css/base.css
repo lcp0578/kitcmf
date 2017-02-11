@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+.demo-nav.fixed.fixed-top {
+	z-index: 8;
+	background: #fff;
+	width: 100%;
+	padding: 0;
+	border-bottom: solid 3px #0a8;
+	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
+}
