@@ -11,7 +11,7 @@ class NewsController extends Controller
         return $this->render('KitWebBundle:News:index.html.twig');
     }
     
-    public function showAction()
+    public function showAction($uuid)
     {
         return $this->render('KitWebBundle:News:show.html.twig');
     }

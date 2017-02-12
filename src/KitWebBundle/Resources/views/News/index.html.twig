@@ -1,0 +1,80 @@
+{% extends '@KitWeb/layout.html.twig' %}
+
+{% block content %}
+<div class="container">
+	<div class="line">
+        <div class="waterfall" id="div_waterfall1">
+            <ul>
+                <li class="bg-blue radius">
+                    1
+                </li>
+                <li class="bg-green  radius">
+                    2
+                </li>
+                <li class="bg-yellow  radius">
+                    3
+                </li>
+                <li class="bg-gray radius">
+                    4
+                </li>
+                <li class="bg-main radius">
+                    5
+                </li>
+                <li class="bg-blue radius">
+                    1
+                </li>
+                <li class="bg-green  radius">
+                    2
+                </li>
+                <li class="bg-yellow  radius">
+                    3
+                </li>
+                <li class="bg-gray radius">
+                    4
+                </li>
+                <li class="bg-main radius">
+                    5
+                </li>
+                <li class="bg-blue radius">
+                    1
+                </li>
+                <li class="bg-green  radius">
+                    2
+                </li>
+                <li class="bg-yellow  radius">
+                    3
+                </li>
+                <li class="bg-gray radius">
+                    4
+                </li>
+                <li class="bg-main radius">
+                    5
+                </li>
+                <li class="bg-blue radius">
+                    1
+                </li>
+                <li class="bg-green  radius">
+                    2
+                </li>
+                <li class="bg-yellow  radius">
+                    3
+                </li>
+                <li class="bg-gray radius">
+                    4
+                </li>
+                <li class="bg-main radius">
+                    5
+                </li>
+            </ul>
+        </div>
+     </div>
+</div>
+    
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script>
+pintuer.waterfall({id:"#div_waterfall1",width:200,height:80});
+</script>
+
+{% endblock %}

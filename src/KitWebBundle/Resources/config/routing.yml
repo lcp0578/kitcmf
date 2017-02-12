@@ -1,3 +1,9 @@
 kit_web_homepage:
     path:     /
     defaults: { _controller: KitWebBundle:Default:index }
+kit_web_news:
+    path:     /news
+    defaults: { _controller: KitWebBundle:News:index }
+kit_web_news_show:
+    path:     /news/show/{uuid}
+    defaults: { _controller: KitWebBundle:News:show }
