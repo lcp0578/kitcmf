@@ -7,3 +7,6 @@ kit_web_news:
 kit_web_news_show:
     path:     /news/show/{uuid}
     defaults: { _controller: KitWebBundle:News:show }
+kit_web_news_data:
+    path:     /news/data
+    defaults: { _controller: KitWebBundle:News:data }

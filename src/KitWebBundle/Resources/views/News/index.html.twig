@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
 	<div class="line">
-        <div class="waterfall" id="div_waterfall1">
+        <div class="waterfall" id="container">
             <ul>
                 <li class="bg-blue radius">
                     1
@@ -69,12 +69,23 @@
         </div>
      </div>
 </div>
-    
+{% verbatim %}
+<script type="text/x-handlebars-template" id="waterfall-tpl">
+    {{#result}}
+        <div class="waterfall-item">
+            <img src="{{image}}" width="{{width}}" height="{{height}}" />
+        </div>
+    {{/result}}
+</script>
+{% endverbatim %}
 {% endblock %}
 {% block javascript %}
 {{ parent() }}
 <script>
-pintuer.waterfall({id:"#div_waterfall1",width:200,height:80});
+var JSON_URI = {{ path("kit_web_news_data") }};
+console.log(JSON_URI);
 </script>
-
+<script src="{{asset('waterfall/js/handlebars.js')}}"></script>
+<script src="{{asset('waterfall/js/waterfall.min.js')}}"></script>
+<script src="{{asset('static/js/news.js')}}"></script>
 {% endblock %}
