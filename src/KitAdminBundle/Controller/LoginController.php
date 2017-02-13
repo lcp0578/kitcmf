@@ -14,6 +14,7 @@ class LoginController extends BaseController
 
     public function loginAction(Request $request)
     {
+        $errors = [];
         $form = $this->createFormBuilder()
             ->add('username', null, [
             'attr' => [
@@ -26,7 +27,7 @@ class LoginController extends BaseController
             'attr' => [
                 'class' => 'input',
                 'placeholder' => "登录密码",
-                'data-validate' => "required:请填写密码,length#>=8:密码长度不符合要求"
+                'data-validate' => "required:请填写密码,length#>=6:密码长度不符合要求"
             ]
         ])
             ->add('captcha', CaptchaType::class, [
@@ -38,6 +39,7 @@ class LoginController extends BaseController
                 255,
                 255
             ],
+            'invalid_message' => '验证码错误',
             'as_url' => true,
             'reload' => $this->generateUrl('gregwar_captcha.generate_captcha', [
                 'key' => uniqid('captcha_')
@@ -60,53 +62,29 @@ class LoginController extends BaseController
                 $userInfo = $em->getRepository('KitRbacBundle:User')->findOneBy([
                     'username' => $formData['username']
                 ]);
-                $pass = $userInfo->getPassword();
-                if(password_verify($password, $hash)){
-                    
+                $passhash = $userInfo->getPassword();
+                $passsalt = $userInfo->getSalt();
+                if(true === password_verify($formData['password'] . $passsalt, $passhash)){
+                    if($userInfo->getStatus()){
+                        // 设置session
+                        $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'login_admin', array('ROLE_USER'));
+                        $this->get('security.token_storage')->setToken($token);
+                        $token->setUser($userInfo);
+                        $this->get('session')->set('_security_main', serialize($token));
+                        return $this->redirectToRoute('kit_admin_homepage');
+                    }else{
+                        $errors[] = '用户已被禁用';
+                    }
+                }else{
+                    $errors[] = '密码不正确';
                 }
-                exit();
-                dump($userInfo);
-                // $user->setIp($request->getClientIp());
-                // $em->persist($user);
-                // $em->flush();
-                return new JsonResponse([
-                    $formData,
-                    $userInfo
-                ]);
             } else {
                 $errors = $this->serializeFormErrors($form);
             }
         }
-        // $username = $request->get('username', '');
-        // $username = $request->query->get('_username');
-        // $password = $request->query->get('_password');
-        // if(isset($username) && isset($password))
-        // {
-        // $userInfo = $em->getRepository('AlarmComponent:User')->findOneBy(array('username'=>$username));
-        // if(!empty($userInfo))
-        // {
-        // $passwordStr = $userInfo->getPassword();
-        // if (password_verify($password,$passwordStr)) {
-        // $token = new UsernamePasswordToken($userInfo->getUsername(), $password, 'lot_admin', array('ROLE_USER'));
-        // $this->get('security.token_storage')->setToken($token);
-        // $token->setUser($userInfo);
-        // $this->get('session')->set('_security_main', serialize($token));
-        // return $this->redirectToRoute('linkadmin_index');
-        // }
-        // $this->setFlashMessage('danger','用户名和密码不匹配');
-        // }else{
-        // $this->setFlashMessage('danger','用户名和密码不匹配');
-        // }
-        // }
-        // $authenticationUtils = $this->get('security.authentication_utils');
-        //
-        // // get the login error if there is one
-        // $error = $authenticationUtils->getLastAuthenticationError();
-        //
-        // // last username entered by the user
-        // $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('KitAdminBundle:Login:login.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'errors' => $errors
         ]);
     }
 

@@ -5,6 +5,7 @@ namespace KitRbacBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -17,7 +18,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     message="用户名已存在"
  * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -262,7 +263,7 @@ class User
      *
      * @return Role
      */
-    public function getRole()
+    public function getRoles()
     {
         return $this->role;
     }
@@ -334,5 +335,8 @@ class User
     {
         $this->setUpdateAt(new \DateTime());
     }
+    
+    public function eraseCredentials()
+    {}
 }
 

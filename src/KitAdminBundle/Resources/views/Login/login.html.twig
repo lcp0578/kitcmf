@@ -15,6 +15,15 @@
 						<div class="panel">
 							<div class="panel-head"><strong>登录拼图后台管理系统</strong></div>
 							<div class="panel-body" style="padding:30px;">
+							    {% if errors is defined and errors is not empty%}
+							    <div class="form-group">
+							         {% for error in errors %}
+							         <div class="alert alert-red">
+							             <span class="close rotate-hover"></span><span> {{ error }} </span>
+							         </div>
+							         {% endfor %}
+							    </div>
+							    {% endif %}
 								<div class="form-group">
 									<div class="field field-icon-right">
 									    {{ form_widget(form.username) }}
