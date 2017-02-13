@@ -68,6 +68,11 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             'Incenteev\\ParameterHandler\\' => 27,
         ),
+        'G' => 
+        array (
+            'Gregwar\\Captcha\\' => 16,
+            'Gregwar\\CaptchaBundle\\' => 22,
+        ),
         'F' => 
         array (
             'FOS\\UserBundle\\' => 15,
@@ -204,6 +209,14 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
+        ),
+        'Gregwar\\Captcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gregwar/captcha',
+        ),
+        'Gregwar\\CaptchaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gregwar/captcha-bundle',
         ),
         'FOS\\UserBundle\\' => 
         array (
