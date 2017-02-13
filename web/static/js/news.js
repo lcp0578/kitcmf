@@ -6,7 +6,7 @@ $('#container').waterfall({
 	itemCls: 'waterfall-item', 
 	prefix: 'waterfall',
 	fitWidth: true, 
-	colWidth: 240, 
+	colWidth: 800, 
 	gutterWidth: 10,
 	gutterHeight: 10,
 	align: 'center',

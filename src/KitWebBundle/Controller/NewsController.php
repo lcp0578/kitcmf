@@ -10,7 +10,10 @@ class NewsController extends Controller
 
     public function indexAction()
     {
-        return $this->render('KitWebBundle:News:index.html.twig');
+        //$dataUri = $this->generateUrl('kit_web_news_data');
+        return $this->render('KitWebBundle:News:index.html.twig', [
+            //'data_uri' => $dataUri
+        ]);
     }
 
     public function showAction($uuid)
