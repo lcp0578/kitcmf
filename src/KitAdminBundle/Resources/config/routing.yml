@@ -10,3 +10,9 @@ kit_admin_add:
 kit_admin_add_success:
     path:     /add_success
     defaults: { _controller: KitAdminBundle:Default:addSuccess }
+kit_admin_login:
+    path:     /login
+    defaults: { _controller: KitAdminBundle:Login:login }
+kit_admin_logout:
+    path:     /add
+    defaults: { _controller: KitAdminBundle:Login:logout }
