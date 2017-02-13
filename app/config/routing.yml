@@ -65,3 +65,6 @@ kit_base:
     type:     annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+gregwar_captcha_routing:
+    resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"
+    prefix: /

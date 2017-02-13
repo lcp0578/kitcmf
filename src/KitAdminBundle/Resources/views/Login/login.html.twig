@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form 'form_theme_captcha.html.twig' %}
 {% block body %}
 <div class="container">
 			<div class="line">
@@ -11,26 +11,25 @@
 					</div>
 					<br />
 					<br />
-					<form action="index.html" method="post">
+					{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 						<div class="panel">
 							<div class="panel-head"><strong>登录拼图后台管理系统</strong></div>
 							<div class="panel-body" style="padding:30px;">
 								<div class="form-group">
 									<div class="field field-icon-right">
-										<input type="text" class="input" name="admin" placeholder="登录账号" data-validate="required:请填写账号,length#>=5:账号长度不符合要求" />
+									    {{ form_widget(form.username) }}
 										<span class="icon icon-user"></span>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="field field-icon-right">
-										<input type="password" class="input" name="password" placeholder="登录密码" data-validate="required:请填写密码,length#>=8:密码长度不符合要求" />
+									    {{ form_widget(form.password) }}
 										<span class="icon icon-key"></span>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="field">
-										<input type="text" class="input" name="passcode" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
-										<img src="images/passcode.jpg" width="80" height="32" class="passcode" />
+										{{ form_widget(form.captcha) }}
 									</div>
 								</div>
 							</div>
@@ -38,9 +37,20 @@
 								<button class="button button-block bg-main text-big">立即登录后台</button>
 							</div>
 						</div>
-					</form>
+					{{ form_end(form) }}
 					<div class="text-right text-small text-gray padding-top">基于<a class="text-gray" target="_blank" href="http://www.pintuer.com">拼图前端框架</a>构建</div>
 				</div>
 			</div>
 		</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    $(function(){
+        $('.passcode').on('click', function(){
+            var src = $(this).attr('src');
+            $(this).attr('src', src + '&t=' + Date.parse(new Date()));
+        });
+     })
+    </script>
 {% endblock %}

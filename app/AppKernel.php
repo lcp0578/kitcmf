@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new KitAdminBundle\KitAdminBundle(),
             new KitRbacBundle\KitRbacBundle(),
             new KitNewsBundle\KitNewsBundle(),
