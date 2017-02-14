@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new Kit\ApiBundle\KitApiBundle(),
             new KitBackupBundle\KitBackupBundle(),
             new KitWebBundle\KitWebBundle(),
+            new KitVideoBundle\KitVideoBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

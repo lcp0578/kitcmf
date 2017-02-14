@@ -1,0 +1,3 @@
+kit_video_homepage:
+    path:     /
+    defaults: { _controller: KitVideoBundle:Default:index }
