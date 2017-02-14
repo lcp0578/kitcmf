@@ -1,6 +1,6 @@
 kit_video:
     resource: "@KitVideoBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /video
 
 kit_web:
     resource: "@KitWebBundle/Resources/config/routing.yml"
