@@ -1,0 +1,70 @@
+{% extends '@KitWeb/layout.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="line">
+        <div class="alert alert-green">
+		  <span class="close rotate-hover"></span><strong>恭喜：</strong>操作成功。
+		</div>
+    </div>
+	<div class="line selector navigation">
+	   <div class="post">
+	       <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+         <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+         <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <p><a href="">送到家第三节课都是借口大家思考，讲的是空间  </a></p>
+        <a class="jscroll-next" href="{{ path('kit_web_news_data') }}">next</a>
+        </div>
+     
+     </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('public/infinite-scroll/jquery.infinitescroll.min.js')}}"></script>
+    <script src="{{asset('public/infinite-scroll/behaviors/local.js')}}"></script>
+    <script>
+    $('.selector').infinitescroll({
+   	 navSelector  : "div.navigation",            
+     // selector for the paged navigation (it will be hidden)
+     nextSelector : "div.navigation a:first",    
+     // selector for the NEXT link (to page 2)
+     itemSelector : "div.post"          
+     // selector for all items you'll retrieve
+//   	  // other options
+//       debug: true,  
+//   	  dataType: 'json',
+//  	  loadingImg   : "/img/loading.gif", 
+//       nextSelector: '.jscroll-next',
+//   	  appendCallback: false
+//   	}, function(json, opts) {
+//   	  // Get current page
+//   	  var page = opts.state.currPage;
+//   	  // Do something with JSON data, create DOM elements, etc ..
+  	});
+    </script>
+{% endblock %}

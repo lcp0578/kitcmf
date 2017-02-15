@@ -4,6 +4,12 @@ kit_web_homepage:
 kit_web_news:
     path:     /news
     defaults: { _controller: KitWebBundle:News:index }
+kit_web_news_list:
+    path:     /news/list
+    defaults: { _controller: KitWebBundle:News:list }
+kit_web_news_jscroll:
+    path:     /news/jscroll
+    defaults: { _controller: KitWebBundle:News:jscroll }
 kit_web_news_show:
     path:     /news/show/{uuid}
     defaults: { _controller: KitWebBundle:News:show }

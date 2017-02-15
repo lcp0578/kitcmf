@@ -16,6 +16,22 @@ class NewsController extends Controller
         ]);
     }
 
+    public function listAction()
+    {
+        //$dataUri = $this->generateUrl('kit_web_news_data');
+        return $this->render('KitWebBundle:News:list.html.twig', [
+            //'data_uri' => $dataUri
+        ]);
+    }
+    
+    public function jscrollAction()
+    {
+        //$dataUri = $this->generateUrl('kit_web_news_data');
+        return $this->render('KitWebBundle:News:jscroll.html.twig', [
+            //'data_uri' => $dataUri
+        ]);
+    }
+    
     public function showAction($uuid)
     {
         return $this->render('KitWebBundle:News:show.html.twig');
