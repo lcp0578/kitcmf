@@ -42,6 +42,9 @@ security:
 #            entity:
 #                class: KitAdminBundle:ApiUser
     firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
         wsse_secured:
             pattern: ^/api/
             stateless: true
@@ -55,7 +58,7 @@ security:
                 # csrf_provider: form.csrf_provider
 
             http_basic:
-                provider: kit_api_provider
+                #provider: kit_api_provider
             logout: true
             anonymous: true
 
