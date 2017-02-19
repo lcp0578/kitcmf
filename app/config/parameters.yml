@@ -10,3 +10,4 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
+    uploads_directory: '%kernel.root_dir%/../web/uploads'

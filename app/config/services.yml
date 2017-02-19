@@ -9,6 +9,9 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
 services:
+    kit.file_uploader:
+        class: KitBaseBundle\FileUploader
+        arguments: ['%uploads_directory%']
     app.webservice_user_provider:
         class: KitAdminBundle\Security\User\WebserviceUserProvider
     wsse.security.authentication.provider:
