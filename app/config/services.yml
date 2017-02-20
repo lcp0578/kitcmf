@@ -9,8 +9,10 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
 services:
+    kit.guzzle_http:
+        class: KitBaseBundle\Service\GuzzleHttp
     kit.file_uploader:
-        class: KitBaseBundle\FileUploader
+        class: KitBaseBundle\Service\FileUploader
         arguments: ['%uploads_directory%']
     app.webservice_user_provider:
         class: KitAdminBundle\Security\User\WebserviceUserProvider

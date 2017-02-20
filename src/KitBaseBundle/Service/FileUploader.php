@@ -1,5 +1,5 @@
 <?php
-namespace KitBaseBundle;
+namespace KitBaseBundle\Service;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
