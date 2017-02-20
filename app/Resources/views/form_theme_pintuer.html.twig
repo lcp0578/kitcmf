@@ -20,7 +20,9 @@
 
 {% block textarea_widget -%}
     {% set attr = attr|merge({class: (attr.class|default('') ~ ' input')|trim}) %}
+    <div class="field">
     {{- parent() -}}
+    </div>
 {%- endblock textarea_widget %}
 
 {% block button_widget -%}
