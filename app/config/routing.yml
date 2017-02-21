@@ -1,6 +1,6 @@
 kit_dnspod:
     resource: "@KitDnspodBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /dnspod
 
 kit_video:
     resource: "@KitVideoBundle/Resources/config/routing.yml"
