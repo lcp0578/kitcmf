@@ -1,6 +1,12 @@
 kit_dnspod_homepage:
     path:     /
     defaults: { _controller: KitDnspodBundle:Default:index }
-kit_dnspod_test:
-    path:     /test
-    defaults: { _controller: KitDnspodBundle:Default:test }
+kit_dnspod_version:
+    path:     /version
+    defaults: { _controller: KitDnspodBundle:Default:version }
+kit_dnspod_user:
+    path:     /user
+    defaults: { _controller: KitDnspodBundle:Default:user }
+kit_dnspod_log:
+    path:     /log
+    defaults: { _controller: KitDnspodBundle:Default:log }
