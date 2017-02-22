@@ -1,6 +1,6 @@
 kit_video_homepage:
     path:     /video
     defaults: { _controller: KitVideoBundle:Default:index }
-kit_video_log:
+kit_video_videolog:
     resource: "@KitVideoBundle/Resources/config/routing/videolog.yml"
     prefix:   /videolog
