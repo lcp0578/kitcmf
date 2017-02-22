@@ -4,7 +4,7 @@ kit_dnspod:
 
 kit_video:
     resource: "@KitVideoBundle/Resources/config/routing.yml"
-    prefix:   /video
+    prefix:   /
 
 kit_web:
     resource: "@KitWebBundle/Resources/config/routing.yml"

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Videologs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Videoid</th>
+                <th>Createat</th>
+                <th>Status</th>
+                <th>Ip</th>
+                <th>Username</th>
+                <th>Userid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for videoLog in videoLogs %}
+            <tr>
+                <td><a href="{{ path('videolog_show', { 'id': videoLog.id }) }}">{{ videoLog.id }}</a></td>
+                <td>{{ videoLog.videoId }}</td>
+                <td>{% if videoLog.createAt %}{{ videoLog.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ videoLog.status }}</td>
+                <td>{{ videoLog.ip }}</td>
+                <td>{{ videoLog.username }}</td>
+                <td>{{ videoLog.userId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('videolog_show', { 'id': videoLog.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('videolog_edit', { 'id': videoLog.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('videolog_new') }}">Create a new videoLog</a>
+        </li>
+    </ul>
+{% endblock %}

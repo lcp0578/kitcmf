@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Videolog</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ videoLog.id }}</td>
+            </tr>
+            <tr>
+                <th>Videoid</th>
+                <td>{{ videoLog.videoId }}</td>
+            </tr>
+            <tr>
+                <th>Createat</th>
+                <td>{% if videoLog.createAt %}{{ videoLog.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ videoLog.status }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ videoLog.ip }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ videoLog.username }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ videoLog.userId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('videolog_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('videolog_edit', { 'id': videoLog.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
