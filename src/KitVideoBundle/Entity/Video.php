@@ -3,6 +3,7 @@
 namespace KitVideoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Video
@@ -25,6 +26,7 @@ class Video
      * @var string
      *
      * @ORM\Column(name="titile", type="string", length=128)
+     * @Assert\NotBlank(message="标题不能为空")
      */
     private $titile;
 
@@ -39,6 +41,7 @@ class Video
      * @var string
      *
      * @ORM\Column(name="area", type="string", length=255)
+     * @Assert\NotBlank(message="地点不能为空")
      */
     private $area;
 

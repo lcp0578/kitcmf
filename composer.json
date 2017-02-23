@@ -31,7 +31,8 @@
         "friendsofsymfony/elastica-bundle": "^3.2",
         "knplabs/knp-markdown-bundle": "^1.5",
         "gregwar/captcha-bundle": "^2.0",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
