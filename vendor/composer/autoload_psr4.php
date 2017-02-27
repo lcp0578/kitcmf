@@ -45,6 +45,7 @@ return array(
     'FOS\\RestBundle\\' => array($vendorDir . '/friendsofsymfony/rest-bundle'),
     'FOS\\JsRoutingBundle\\' => array($vendorDir . '/friendsofsymfony/jsrouting-bundle'),
     'FOS\\ElasticaBundle\\' => array($vendorDir . '/friendsofsymfony/elastica-bundle'),
+    'Endroid\\QrCode\\' => array($vendorDir . '/endroid/qrcode/src'),
     'Elastica\\' => array($vendorDir . '/ruflin/elastica/lib/Elastica'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),

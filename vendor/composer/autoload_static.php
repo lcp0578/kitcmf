@@ -61,6 +61,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             'Monolog\\' => 8,
         ),
+        'L' => 
+        array (
+            'Liip\\ImagineBundle\\' => 19,
+        ),
         'K' => 
         array (
             'Knp\\Menu\\' => 9,
@@ -84,10 +88,12 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             'FOS\\UserBundle\\' => 15,
             'FOS\\RestBundle\\' => 15,
+            'FOS\\JsRoutingBundle\\' => 20,
             'FOS\\ElasticaBundle\\' => 19,
         ),
         'E' => 
         array (
+            'Endroid\\QrCode\\' => 15,
             'Elastica\\' => 9,
         ),
         'D' => 
@@ -201,6 +207,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Liip\\ImagineBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/liip/imagine-bundle',
+        ),
         'Knp\\Menu\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu/src/Knp/Menu',
@@ -249,9 +259,17 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
         ),
+        'FOS\\JsRoutingBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle',
+        ),
         'FOS\\ElasticaBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/elastica-bundle',
+        ),
+        'Endroid\\QrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/endroid/qrcode/src',
         ),
         'Elastica\\' => 
         array (
@@ -328,6 +346,13 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
             'JsonpCallbackValidator' => 
             array (
                 0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
+            ),
+        ),
+        'I' => 
+        array (
+            'Imagine' => 
+            array (
+                0 => __DIR__ . '/..' . '/imagine/imagine/lib',
             ),
         ),
         'D' => 
