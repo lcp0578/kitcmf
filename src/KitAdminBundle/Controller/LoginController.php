@@ -62,21 +62,25 @@ class LoginController extends BaseController
                 $userInfo = $em->getRepository('KitRbacBundle:User')->findOneBy([
                     'username' => $formData['username']
                 ]);
-                $passhash = $userInfo->getPassword();
-                $passsalt = $userInfo->getSalt();
-                if(true === password_verify($formData['password'] . $passsalt, $passhash)){
-                    if($userInfo->getStatus()){
-                        // 设置session
-                        $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'login_admin', array('ROLE_USER'));
-                        $this->get('security.token_storage')->setToken($token);
-                        $token->setUser($userInfo);
-                        $this->get('session')->set('_security_main', serialize($token));
-                        return $this->redirectToRoute('kit_admin_homepage');
-                    }else{
-                        $errors[] = '用户已被禁用';
-                    }
+                if(empty($userInfo)){
+                    $errors[] = '用户不存在';
                 }else{
-                    $errors[] = '密码不正确';
+                    $passhash = $userInfo->getPassword();
+                    $passsalt = $userInfo->getSalt();
+                    if(true === password_verify($formData['password'] . $passsalt, $passhash)){
+                        if($userInfo->getStatus()){
+                            // 设置session
+                            $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'login_admin', array('ROLE_USER'));
+                            $this->get('security.token_storage')->setToken($token);
+                            $token->setUser($userInfo);
+                            $this->get('session')->set('_security_main', serialize($token));
+                            return $this->redirectToRoute('kit_admin_homepage');
+                        }else{
+                            $errors[] = '用户已被禁用';
+                        }
+                    }else{
+                        $errors[] = '密码不正确';
+                    }
                 }
             } else {
                 $errors = $this->serializeFormErrors($form);
