@@ -10,7 +10,9 @@ framework:
 web_profiler:
     toolbar: true
     intercept_redirects: false
-
+_errors:
+    resource: "@TwigBundle/Resources/config/routing/errors.xml"
+    prefix:   /_error
 monolog:
     handlers:
         main:
