@@ -2,12 +2,12 @@
 <form method="post">
 	<div class="panel admin-panel">
 		<div class="panel-head">
-			<strong>内容列表</strong>
+			<strong>管理员列表</strong>
 		</div>
 		<div class="padding border-bottom">
 			<input type="button" class="button button-small checkall"
-				name="checkall" checkfor="id" value="全选" /> <input type="button"
-				class="button button-small border-green" value="添加文章" /> <input
+				name="checkall" checkfor="id" value="全选" /> <a href="{{ path('kit_rbac_user_add') }}" type="button"
+				class="button button-small border-green">添加管理员</a> <input
 				type="button" class="button button-small border-yellow" value="批量删除" />
 			<input type="button" class="button button-small border-blue"
 				value="回收站" />

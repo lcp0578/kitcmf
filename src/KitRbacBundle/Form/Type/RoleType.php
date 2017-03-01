@@ -25,14 +25,11 @@ class RoleType extends AbstractType
             ],
             'expanded' => true,
             'label' => '状态',
+             'data' => 1,
             'label_attr' => [
                 'class' => 'radio-inline'
             ]
         ])
-//             ->add('test', null, [
-//                 'label' => 'test',
-//                 'mapped' => false
-//         ])
             ->add('submit', SubmitType::class, [
             'label' => '提交'
         ]);

@@ -6,13 +6,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
+use KitRbacBundle\Entity\User;
 
 class BaseController extends Controller
 {
     public function setContainer(ContainerInterface $container = null) 
     {
         parent::setContainer($container);
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        if($user instanceof User){
+//             $roleName = $user->getRoles()->getRole();
+//             $this->denyAccessUnlessGranted($roleName, null, 'Unable to access this page!');
+        }else{
+            throw $this->createAccessDeniedException();
+        }
     }
     /**
      * @Route("/", name="homepage")

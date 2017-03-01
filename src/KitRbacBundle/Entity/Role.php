@@ -81,7 +81,7 @@ class Role implements RoleInterface
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
     /**
      * 

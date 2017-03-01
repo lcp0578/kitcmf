@@ -90,7 +90,7 @@ class User implements UserInterface
      * @ORM\ManyToOne(targetEntity="Role", inversedBy="user")
      * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
      */
-    private $role;
+    private $roles;
 
     /**
      * Get id
@@ -252,9 +252,9 @@ class User implements UserInterface
      * @param Roles $role
      * @return User
      */
-    public function setRole(Role $role = null)
+    public function setRoles(Role $role = null)
     {
-        $this->role = $role;
+        $this->roles = $role;
         return $this;
     }
     
@@ -265,31 +265,8 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
     }
-    /**
-     * Set roleId
-     *
-     * @param integer $roleId
-     *
-     * @return User
-     */
-//     public function setRoleId()
-//     {
-//         $this->roleId = $this->role->getId();
-
-//         return $this;
-//     }
-
-    /**
-     * Get roleId
-     *
-     * @return int
-     */
-//     public function getRoleId()
-//     {
-//         return $this->roleId;
-//     }
 
     /**
      * Set status
