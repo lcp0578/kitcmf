@@ -9,6 +9,15 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
 services:
+    app.base_voter:
+        class: KitRbacBundle\Security\BaseVoter
+        arguments: ['@security.access.decision_manager']
+        public: false
+        tags:
+            - { name: security.voter }
+    # custom access denied hander
+    app.security.access_denied_handler:
+        class: KitRbacBundle\Security\AccessDeniedHandler
     kit.guzzle_http:
         class: KitBaseBundle\Service\GuzzleHttp
     kit.file_uploader:

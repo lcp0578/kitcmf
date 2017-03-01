@@ -5,6 +5,7 @@ use KitRbacBundle\Entity\Post;
 use KitRbacBundle\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
+use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 
 class BaseVoter extends Voter
 {
@@ -14,6 +15,13 @@ class BaseVoter extends Voter
     const EDIT = 'edit';
     const DELETE = 'delete';
 
+    private $decisionManager;
+    
+    public function __construct(AccessDecisionManagerInterface $decisionManager)
+    {
+        $this->decisionManager = $decisionManager;
+    }
+    
     protected function supports($attribute, $subject)
     {
         // if the attribute isn't one we support, return false

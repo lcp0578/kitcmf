@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
  * Role
@@ -18,7 +19,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     message="角色名称已存在"
  * )
  */
-class Role
+class Role implements RoleInterface
 {
     /**
      * @var int
@@ -81,6 +82,14 @@ class Role
     public function __construct()
     {
         $this->products = new ArrayCollection();
+    }
+    /**
+     * 
+     * 
+     */
+    public function getRole()
+    {
+        return 'ROLE_ADMIN_' . $this->id;
     }
     /**
      * Get id

@@ -7,9 +7,9 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use KitBaseBundle\Controller\BaseController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LoginController extends BaseController
+class LoginController extends Controller
 {
 
     public function loginAction(Request $request)

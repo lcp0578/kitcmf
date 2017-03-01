@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DefaultController extends BaseController
 {
-
+        
     public function indexAction()
     {
         $reposity = $this->getDoctrine()->getRepository('KitRbacBundle:User');
