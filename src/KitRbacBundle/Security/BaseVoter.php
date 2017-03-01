@@ -25,14 +25,14 @@ class BaseVoter extends Voter
     protected function supports($attribute, $subject)
     {
         // if the attribute isn't one we support, return false
-        if (!in_array($attribute, array(self::ADD, self::VIEW, self::EDIT, self::DELETE))) {
-            return false;
-        }
+//         if (!in_array($attribute, array(self::ADD, self::VIEW, self::EDIT, self::DELETE))) {
+//             return false;
+//         }
 
-        // only vote on Post objects inside this voter
-        if (!$subject instanceof Post) {
-            return false;
-        }
+//         // only vote on Post objects inside this voter
+//         if (!$subject instanceof Post) {
+//             return false;
+//         }
 
         return true;
     }
@@ -40,7 +40,8 @@ class BaseVoter extends Voter
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
     {
         $user = $token->getUser();
-
+        var_dump($attribute);
+        exit();
         if (!$user instanceof User) {
             // the user must be logged in; if not, deny access
             return false;
@@ -49,15 +50,15 @@ class BaseVoter extends Voter
         // you know $subject is a Post object, thanks to supports
         // 多亏了supports，你知道 $subject 是 Post 对象
         /** @var Post $post */
-        $post = $subject;
+//         $post = $subject;
 
-        switch ($attribute) {
-            case self::VIEW:
-                return $this->canView($post, $user);
-            case self::EDIT:
-                return $this->canEdit($post, $user);
-        }
-
+//         switch ($attribute) {
+//             case self::VIEW:
+//                 return $this->canView($post, $user);
+//             case self::EDIT:
+//                 return $this->canEdit($post, $user);
+//         }
+        return true;
         throw new \LogicException('This code should not be reached!');
     }
 

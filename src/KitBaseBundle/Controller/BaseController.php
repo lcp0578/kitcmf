@@ -15,8 +15,8 @@ class BaseController extends Controller
         parent::setContainer($container);
         $user = $this->get('security.token_storage')->getToken()->getUser();
         if($user instanceof User){
-//             $roleName = $user->getRoles()->getRole();
-//             $this->denyAccessUnlessGranted($roleName, null, 'Unable to access this page!');
+            $roleName = $user->getRoles()->getRole();
+            $this->denyAccessUnlessGranted($roleName, null, 'Unable to access this page!');
         }else{
             throw $this->createAccessDeniedException();
         }
