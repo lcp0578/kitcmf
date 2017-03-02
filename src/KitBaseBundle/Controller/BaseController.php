@@ -13,13 +13,6 @@ class BaseController extends Controller
     public function setContainer(ContainerInterface $container = null) 
     {
         parent::setContainer($container);
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        if($user instanceof User){
-            $roleName = $user->getRoles()->getRole();
-            $this->denyAccessUnlessGranted($roleName, null, 'Unable to access this page!');
-        }else{
-            throw $this->createAccessDeniedException();
-        }
     }
     /**
      * @Route("/", name="homepage")
@@ -179,6 +172,16 @@ class BaseController extends Controller
     public function getCaseRegisterRepository()
 	{
 		return $this->em()->getRepository('KitCaseBundle:CaseRegister');
+	}
+	/**
+	 * 
+	 */
+	public function checkAccess($routerName)
+	{
+	    $this->get('router');
+	    if (array_key_exists($routerName, $router->getRouteCollection->all())){
+	        $this->denyAccessUnlessGranted($routerName, null, 'Unable to access this page!');
+	    } 
 	}
 }
 
