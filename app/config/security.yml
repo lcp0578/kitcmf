@@ -36,9 +36,9 @@ security:
     providers:
         webservice:
             id: app.webservice_user_provider
-        login_admin:
-            entity:
-                class: KitRbacBundle:User
+        # login_admin:
+        #     entity:
+        #         class: KitRbacBundle:User
 #        fos_userbundle:
 #            id: fos_user.user_provider.username
 #        kit_api_provider:
@@ -54,9 +54,12 @@ security:
             wsse: true
         main:
             pattern: ^/
-            form_login:
-                provider: fos_userbundle
-                csrf_token_generator: security.csrf.token_manager
+            # form_login:
+            #     entity:
+            #         class: KitRbacBundle:User
+            # form_login:
+            #     provider: fos_userbundle
+            #     csrf_token_generator: security.csrf.token_manager
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
             access_denied_handler: app.security.access_denied_handler
@@ -69,4 +72,4 @@ security:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        #- { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/admin/, role: ROLE_ADMIN }
