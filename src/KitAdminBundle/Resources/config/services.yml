@@ -2,3 +2,10 @@ services:
 #    kit_admin.example:
 #        class: KitAdminBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+services:
+    security.access.blacklist_voter:
+        class:      KitAdminBundle\Security\Authorization\Voter\ClientIpVoter
+        arguments:  [@service_container, [123.123.123.123, 171.171.171.171]]
+        public:     false
+        tags:
+            -       { name: security.voter }
