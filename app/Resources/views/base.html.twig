@@ -32,20 +32,35 @@
     	                {%set menuList = knp_menu_get('KitMenuBundle:AdminBuilder:mainMenu')%}
     	                {% set currentMenu = knp_menu_get_current_item(menuList) %}
     	                {%if menuList.children is defined and menuList.children is not empty %}
-    					<ul class="nav nav-inline admin-nav">
+{#     					<ul class="nav nav-inline admin-nav">#}
+{#                            {%for v in menuList.children %}#}
+{#     						<li {% if app.request.requestUri == v.uri or (currentMenu.parent.uri is defined and currentMenu.parent.uri == v.uri)%}class="active"{% endif %}>#}
+{#     						  <a href="{{ v.uri }}" class="{{ v.attributes.icon }}">&nbsp;{{ v.label }}</a>#}
+{#     						  {%if v.children is defined and v.children is not empty %}#}
+{#     						      <ul>#}
+{#     						          {%for vv in v.children %}#}
+{# 								        <li {% if vv.uri == app.request.requestUri %}class="active"{% endif %}><a href="{{ vv.uri }}">{{ vv.label }}</a></li>#}
+{# 								      {% endfor %}#}
+{# 								  </ul>#}
+{#     						  {% endif %}#}
+{#     						</li>#}
+{#     						{% endfor %}#}
+{#     					</ul>#}
+                        <ul class="nav nav-inline admin-nav">
                            {%for v in menuList.children %}
-    						<li {% if app.request.requestUri == v.uri or (currentMenu.parent.uri is defined and currentMenu.parent.uri == v.uri)%}class="active"{% endif %}>
+    						<li {% if app.request.attributes.get('_route') == v.name or (currentMenu.parent.name is defined and currentMenu.parent.name == v.name)%}class="active"{% endif %}>
     						  <a href="{{ v.uri }}" class="{{ v.attributes.icon }}">&nbsp;{{ v.label }}</a>
     						  {%if v.children is defined and v.children is not empty %}
     						      <ul>
     						          {%for vv in v.children %}
-								        <li {% if vv.uri == app.request.requestUri %}class="active"{% endif %}><a href="{{ vv.uri }}">{{ vv.label }}</a></li>
+								        <li {% if app.request.attributes.get('_route') == vv.name %}class="active"{% endif %}><a href="{{ vv.uri }}">{{ vv.label }}</a></li>
 								      {% endfor %}
 								  </ul>
     						  {% endif %}
     						</li>
     						{% endfor %}
     					</ul>
+    					{% endif %}
     					{% endif %}
     					{# {{ dump(menuList.children) }}
     					{{ dump(app.request) }} #}
