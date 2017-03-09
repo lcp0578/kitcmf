@@ -54,15 +54,15 @@ security:
             anonymous: ~
             provider: login_admin
             form_login:
-                login_path: /admin/login
-                check_path: /admin/login
+                login_path: kit_admin_login
+                check_path: kit_admin_login
                 default_target_path: /admin
                 #username_parameter: _username
                 #password_parameter: _password
-                failure_path:    /admin/login
+                failure_path: kit_admin_login
             logout:
-                path: /admin/logout
-                target: /admin/login
+                path: kit_admin_logout
+                target: kit_admin_login
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
