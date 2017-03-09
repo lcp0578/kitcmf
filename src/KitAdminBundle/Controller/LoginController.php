@@ -70,7 +70,7 @@ class LoginController extends Controller
                     if(true === password_verify($formData['password'] . $passsalt, $passhash)){
                         if($userInfo->getStatus()){
                             // 设置session
-                            $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'login_admin', array('ROLE_USER'));
+                            $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'admin_firewalls', array('ROLE_USER'));
                             $this->get('security.token_storage')->setToken($token);
                             $token->setUser($userInfo);
                             $this->get('session')->set('_security_main', serialize($token));

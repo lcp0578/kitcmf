@@ -44,6 +44,10 @@ security:
 #        kit_api_provider:
 #            entity:
 #                class: KitAdminBundle:ApiUser
+        users:
+            entity: { class: AlarmComponent:User, property: username }
+        in_memory:
+            memory: ~
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -67,9 +71,20 @@ security:
                 #provider: kit_api_provider
             logout: true
             anonymous: true
-
+        admin_firewalls:
+            pattern:   ^/admin
+            anonymous: ~
+            provider: users
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login
+                default_target_path: /admin
+                username_parameter: _username
+                password_parameter: _password
+                failure_path:    /admin/login
+            logout:
+                path: /admin/logout
+                target: /admin/login
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
