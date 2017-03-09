@@ -13,7 +13,7 @@
 					<br />
 					{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 						<div class="panel">
-							<div class="panel-head"><strong>登录拼图后台管理系统</strong></div>
+							<div class="panel-head"><strong>登录后台管理系统</strong></div>
 							<div class="panel-body" style="padding:30px;">
 							    {% if errors is defined and errors is not empty%}
 							    <div class="form-group">
@@ -43,11 +43,10 @@
 								</div>
 							</div>
 							<div class="panel-foot text-center">
-								<button class="button button-block bg-main text-big">立即登录后台</button>
+							     {{ form_widget(form.submit) }}
 							</div>
 						</div>
 					{{ form_end(form) }}
-					<div class="text-right text-small text-gray padding-top">基于<a class="text-gray" target="_blank" href="http://www.pintuer.com">拼图前端框架</a>构建</div>
 				</div>
 			</div>
 		</div>

@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class LoginController extends Controller
 {
@@ -16,6 +17,8 @@ class LoginController extends Controller
     {
         $errors = [];
         $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('kit_admin_login'))
+            ->setMethod('POST')
             ->add('username', null, [
             'attr' => [
                 'class' => 'input',
@@ -50,6 +53,12 @@ class LoginController extends Controller
                 'data-validate' => "required:填写右侧的验证码"
             ]
         ])
+            ->add('submit', SubmitType::class, [
+                'label' => '提交',
+                'attr' => [
+                    'class' => 'button button-block bg-main text-big'
+                    ]
+            ])
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
@@ -70,7 +79,7 @@ class LoginController extends Controller
                     if(true === password_verify($formData['password'] . $passsalt, $passhash)){
                         if($userInfo->getStatus()){
                             // 设置session
-                            $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'admin_firewalls', array('ROLE_USER'));
+                            $token = new UsernamePasswordToken($userInfo->getUsername(), $formData['password'], 'admin_firewalls', array('ROLE_ADMIN'));
                             $this->get('security.token_storage')->setToken($token);
                             $token->setUser($userInfo);
                             $this->get('session')->set('_security_main', serialize($token));

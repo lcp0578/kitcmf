@@ -36,9 +36,9 @@ security:
     providers:
         webservice:
             id: app.webservice_user_provider
-        # login_admin:
-        #     entity:
-        #         class: KitRbacBundle:User
+        login_admin:
+            entity:
+                class: KitRbacBundle:User
 #        fos_userbundle:
 #            id: fos_user.user_provider.username
 #        kit_api_provider:
@@ -52,13 +52,13 @@ security:
         admin_firewalls:
             pattern:   ^/admin
             anonymous: ~
-            provider: users
+            provider: login_admin
             form_login:
                 login_path: /admin/login
                 check_path: /admin/login
                 default_target_path: /admin
-                username_parameter: _username
-                password_parameter: _password
+                #username_parameter: _username
+                #password_parameter: _password
                 failure_path:    /admin/login
             logout:
                 path: /admin/logout
