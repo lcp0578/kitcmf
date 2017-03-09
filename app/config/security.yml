@@ -50,7 +50,7 @@ security:
             memory: ~
     firewalls:
         admin_firewalls:
-            pattern:   ^/admin
+            pattern:   ^/
             anonymous: ~
             provider: login_admin
             form_login:
@@ -66,10 +66,10 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        wsse_secured:
-            pattern: ^/api/
-            stateless: true
-            wsse: true
+        #wsse_secured:
+            #pattern: ^/api/
+            #stateless: true
+            #wsse: true
         main:
             pattern: ^/
             # form_login:
