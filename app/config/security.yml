@@ -49,6 +49,20 @@ security:
         in_memory:
             memory: ~
     firewalls:
+        admin_firewalls:
+            pattern:   ^/admin
+            anonymous: ~
+            provider: users
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login
+                default_target_path: /admin
+                username_parameter: _username
+                password_parameter: _password
+                failure_path:    /admin/login
+            logout:
+                path: /admin/logout
+                target: /admin/login
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -71,20 +85,6 @@ security:
                 #provider: kit_api_provider
             logout: true
             anonymous: true
-        admin_firewalls:
-            pattern:   ^/admin
-            anonymous: ~
-            provider: users
-            form_login:
-                login_path: /admin/login
-                check_path: /admin/login
-                default_target_path: /admin
-                username_parameter: _username
-                password_parameter: _password
-                failure_path:    /admin/login
-            logout:
-                path: /admin/logout
-                target: /admin/login
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
