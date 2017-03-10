@@ -35,7 +35,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
             
-            return $this->redirectToRoute('web_user_login');
+            return $this->redirectToRoute('kit_web_login');
         }
         
         return $this->render('KitWebBundle:User:register.html.twig', [

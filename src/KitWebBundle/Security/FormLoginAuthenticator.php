@@ -33,9 +33,9 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
             return;
         }
         
-        $email = $request->request->get('_email');
+        $email = $request->request->get('email');
         $request->getSession()->set(Security::LAST_USERNAME, $email);
-        $password = $request->request->get('_password');
+        $password = $request->request->get('password');
         
         return [
             'email' => $email,
