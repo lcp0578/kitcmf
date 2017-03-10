@@ -23,7 +23,9 @@
 #             # form_login: ~
 #             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 security:
-#    encoders:
+    encoders:
+        KitRbacBundle\Entity\User:
+            algorithm: bcrypt
 #        FOS\UserBundle\Model\UserInterface: bcrypt
 #        KitAdminBundle\Security\User\WebserviceUser:
 #            algorithm: bcrypt
@@ -39,6 +41,7 @@ security:
         login_admin:
             entity:
                 class: KitRbacBundle:User
+                property: username
 #        fos_userbundle:
 #            id: fos_user.user_provider.username
 #        kit_api_provider:
@@ -57,8 +60,8 @@ security:
                 login_path: kit_admin_login
                 check_path: kit_admin_login
                 default_target_path: /admin
-                #username_parameter: _username
-                #password_parameter: _password
+                username_parameter: _username
+                password_parameter: _password
                 failure_path: kit_admin_login
             logout:
                 path: kit_admin_logout

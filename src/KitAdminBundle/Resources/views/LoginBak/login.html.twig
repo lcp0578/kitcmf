@@ -11,7 +11,7 @@
 					</div>
 					<br />
 					<br />
-					<form action="{{ path('kit_admin_login') }}" method="post">
+					{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 						<div class="panel">
 							<div class="panel-head"><strong>登录后台管理系统</strong></div>
 							<div class="panel-body" style="padding:30px;">
@@ -26,28 +26,27 @@
 							    {% endif %}
 								<div class="form-group">
 									<div class="field field-icon-right">
-									    <input type="text" class="input" name="_username" placeholder="登录账号" data-validate="required:请填写账号,length#>=5:账号长度不符合要求" />
+									    {{ form_widget(form.username) }}
 										<span class="icon icon-user"></span>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="field field-icon-right">
-									    <input type="password" class="input" name="_password" placeholder="登录密码" data-validate="required:请填写密码,length#>=6:密码长度不符合要求" />
+									    {{ form_widget(form.password) }}
 										<span class="icon icon-key"></span>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="field">
-										<input type="text" class="input" name="passcode" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
-										<img src="images/passcode.jpg" width="80" height="32" class="passcode" />
+										{{ form_widget(form.captcha) }}
 									</div>
 								</div>
 							</div>
 							<div class="panel-foot text-center">
-							     <button class="button button-block bg-main text-big">立即登录后台</button>
+							     {{ form_widget(form.submit) }}
 							</div>
 						</div>
-                    </form>
+					{{ form_end(form) }}
 				</div>
 			</div>
 		</div>
