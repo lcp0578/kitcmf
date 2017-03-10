@@ -26,6 +26,7 @@ security:
     encoders:
         KitRbacBundle\Entity\User:
             algorithm: bcrypt
+        KitWebBundle\Entity\WebUser: bcrypt
 #        FOS\UserBundle\Model\UserInterface: bcrypt
 #        KitAdminBundle\Security\User\WebserviceUser:
 #            algorithm: bcrypt
@@ -36,6 +37,8 @@ security:
 #        ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
+        database_web_users:
+            entity: {class: KitWebBundle:WebUser, property: email }
         webservice:
             id: app.webservice_user_provider
         login_admin:
@@ -53,7 +56,7 @@ security:
             memory: ~
     firewalls:
         admin_firewalls:
-            pattern:   ^/
+            pattern:   ^/admin
             anonymous: ~
             provider: login_admin
             form_login:
@@ -74,7 +77,14 @@ security:
             #stateless: true
             #wsse: true
         main:
-            pattern: ^/
+            pattern: ^/u
+            anonymous: ~
+            guard:
+                authenticators:
+                    - kit_web.form_login_authenticator
+            logout:
+                path: /u/logout
+                target: /
             # form_login:
             #     entity:
             #         class: KitRbacBundle:User
@@ -87,7 +97,7 @@ security:
             http_basic:
                 #provider: kit_api_provider
             logout: true
-            anonymous: true
+            
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }

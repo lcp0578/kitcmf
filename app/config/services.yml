@@ -8,6 +8,9 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 services:
+    kit_web.form_login_authenticator:
+        class: KitWebBundle\Security\FormLoginAuthenticator
+        arguments: ["@router", "@security.password_encoder"]
     app.base_voter:
         class: KitRbacBundle\Security\BaseVoter
         arguments: ['@security.access.decision_manager']

@@ -16,3 +16,18 @@ kit_web_news_show:
 kit_web_news_data:
     path:     /news/data
     defaults: { _controller: KitWebBundle:News:data }
+kit_web_user:
+    path:     /u
+    defaults: { _controller: KitWebBundle:User:index }
+kit_web_login:
+    path:     /u/login
+    defaults: { _controller: KitWebBundle:User:login }
+kit_web_login_check:
+    path:     /u/login_check
+    defaults: { _controller: KitWebBundle:User:login_check }
+kit_web_logout:
+    path:     /u/logout
+    defaults: { _controller: KitWebBundle:User:logout }
+kit_web_register:
+    path:     /u/register
+    defaults: { _controller: KitWebBundle:User:register }
