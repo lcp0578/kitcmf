@@ -20,14 +20,14 @@ kit_web_user:
     path:     /u
     defaults: { _controller: KitWebBundle:User:index }
 kit_web_login:
-    path:     /u/login
+    path:     /login
     defaults: { _controller: KitWebBundle:User:login }
 kit_web_login_check:
-    path:     /u/login_check
+    path:     /login_check
     defaults: { _controller: KitWebBundle:User:login_check }
 kit_web_logout:
-    path:     /u/logout
+    path:     /logout
     defaults: { _controller: KitWebBundle:User:logout }
 kit_web_register:
-    path:     /u/register
+    path:     /register
     defaults: { _controller: KitWebBundle:User:register }

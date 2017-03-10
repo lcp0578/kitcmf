@@ -77,13 +77,16 @@ security:
             #stateless: true
             #wsse: true
         main:
-            pattern: ^/u
+            pattern: ^/
             anonymous: ~
             guard:
                 authenticators:
                     - kit_web.form_login_authenticator
+            #form_login:
+            #    login_path: kit_web_login
+            #    check_path: kit_web_login_check
             logout:
-                path: /u/logout
+                path: /logout
                 target: /
             # form_login:
             #     entity:
@@ -101,3 +104,4 @@ security:
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/u, role: ROLE_USER }
