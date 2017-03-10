@@ -29,6 +29,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getCredentials(Request $request)
     {
+        //dump($request->getPathInfo());die();
         if ($request->getPathInfo() != '/login_check') {
             return;
         }
