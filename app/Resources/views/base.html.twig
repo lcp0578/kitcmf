@@ -27,7 +27,7 @@
     				<div class="admin-navbar">
     					<span class="float-right">
     	                    <a class="button button-little bg-main" href="http://www.pintuer.com" target="_blank">前台首页</a>
-    	                    <a class="button button-little bg-yellow" href="login.html">注销登录</a>
+    	                    <a class="button button-little bg-yellow" href="{{ path('kit_admin_logout') }}">注销登录</a>
     	                </span>
     	                {%set menuList = knp_menu_get('KitMenuBundle:AdminBuilder:mainMenu')%}
     	                {% set currentMenu = knp_menu_get_current_item(menuList) %}
