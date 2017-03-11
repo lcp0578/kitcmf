@@ -11,6 +11,9 @@ services:
     kit_web.form_login_authenticator:
         class: KitWebBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder"]
+    kit_admin.admin_form_login_authenticator:
+        class: KitAdminBundle\Security\AdminFormLoginAuthenticator
+        arguments: ["@router", "@security.password_encoder"]
     app.base_voter:
         class: KitRbacBundle\Security\BaseVoter
         arguments: ['@security.access.decision_manager']

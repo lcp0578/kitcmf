@@ -10,8 +10,9 @@
 						<strong>登录</strong>
 					</div>
 					{% if error %}
-                        <div class="alert alert-danger">
-                            {{ error.messageKey|trans(error.messageData) }}
+                        <div class="alert alert-red margin">
+                            <span class="close rotate-hover"></span>
+                            <span>{{ error.messageKey|trans(error.messageData) }}</span>
                         </div>
                     {% endif %}
 					<div class="panel-body" style="padding: 30px;">

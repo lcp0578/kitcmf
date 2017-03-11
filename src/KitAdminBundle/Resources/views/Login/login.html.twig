@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'form_theme_captcha.html.twig' %}
 {% block body %}
 <div class="container">
 			<div class="line">
@@ -11,18 +10,26 @@
 					</div>
 					<br />
 					<br />
-					<form action="{{ path('kit_admin_login') }}" method="post">
+					<form action="{{ path('kit_admin_login_check') }}" method="post">
 						<div class="panel">
 							<div class="panel-head"><strong>登录后台管理系统</strong></div>
 							<div class="panel-body" style="padding:30px;">
+							     {% if error %}
+							     <div class="form-group">
+                                    <div class="alert alert-red">
+                                        <span class="close rotate-hover"></span>
+                                        <span>{{ error.messageKey|trans(error.messageData) }}</span>
+                                    </div>
+                                </div>
+                                {% endif %}
 							    {% if errors is defined and errors is not empty%}
-							    <div class="form-group">
+							    
 							         {% for error in errors %}
 							         <div class="alert alert-red">
 							             <span class="close rotate-hover"></span><span> {{ error }} </span>
 							         </div>
 							         {% endfor %}
-							    </div>
+							    
 							    {% endif %}
 								<div class="form-group">
 									<div class="field field-icon-right">
@@ -34,12 +41,6 @@
 									<div class="field field-icon-right">
 									    <input type="password" class="input" name="_password" placeholder="登录密码" data-validate="required:请填写密码,length#>=6:密码长度不符合要求" />
 										<span class="icon icon-key"></span>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="field">
-										<input type="text" class="input" name="passcode" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
-										<img src="images/passcode.jpg" width="80" height="32" class="passcode" />
 									</div>
 								</div>
 							</div>

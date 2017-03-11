@@ -39,9 +39,9 @@ security:
     providers:
         database_web_users:
             entity: {class: KitWebBundle:WebUser, property: email }
-        webservice:
-            id: app.webservice_user_provider
-        login_admin:
+        #webservice:
+            #id: app.webservice_user_provider
+        database_admin_users:
             entity:
                 class: KitRbacBundle:User
                 property: username
@@ -50,15 +50,18 @@ security:
 #        kit_api_provider:
 #            entity:
 #                class: KitAdminBundle:ApiUser
-        users:
-            entity: { class: AlarmComponent:User, property: username }
+        #users:
+            # entity: { class: AlarmComponent:User, property: username }
         in_memory:
             memory: ~
     firewalls:
         admin_firewalls:
             pattern:   ^/admin
             anonymous: ~
-            provider: login_admin
+            provider: database_admin_users
+            guard:
+                authenticators:
+                    - kit_admin.admin_form_login_authenticator
             form_login:
                 login_path: kit_admin_login
                 check_path: kit_admin_login
@@ -103,5 +106,6 @@ security:
             
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/u, role: ROLE_USER }

@@ -78,6 +78,13 @@ class User implements UserInterface
      * @ORM\Column(name="role_id", type="integer", options={"comment": "角色ID"})
      */
     private $roleId;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string",  length=32, options={"comment": "角色名"})
+     */
+    private $role;
 
     /**
      * @var int
@@ -249,6 +256,27 @@ class User implements UserInterface
     /**
      * Set role
      *
+     * @param string $role
+     * @return User
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+        return $this;
+    }
+    
+    /**
+     * Get role
+     *
+     * @return Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    /**
+     * Set role
+     *
      * @param Roles $role
      * @return User
      */
@@ -265,7 +293,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return $this->roles;
+        return [$this->getRole()];
     }
 
     /**

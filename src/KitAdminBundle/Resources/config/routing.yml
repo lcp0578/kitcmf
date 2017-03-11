@@ -1,18 +1,12 @@
 kit_admin_homepage:
     path:     /
     defaults: { _controller: KitAdminBundle:Default:index }
-kit_admin_list:
-    path:     /list
-    defaults: { _controller: KitAdminBundle:Default:list }
-kit_admin_add:
-    path:     /add
-    defaults: { _controller: KitAdminBundle:Default:add }
-kit_admin_add_success:
-    path:     /add_success
-    defaults: { _controller: KitAdminBundle:Default:addSuccess }
 kit_admin_login:
     path:     /login
     defaults: { _controller: KitAdminBundle:Login:login }
+kit_admin_login_check:
+    path:     /login_check
+    defaults: { _controller: KitAdminBundle:Login:loginCheck }
 kit_admin_logout:
-    path:     /add
+    path:     /logout
     defaults: { _controller: KitAdminBundle:Login:logout }

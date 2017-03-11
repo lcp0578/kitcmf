@@ -62,6 +62,7 @@ class DefaultController extends BaseController
                  */
                 $user = $form->getData();
                 $user->setIp($request->getClientIp());
+                $user->setRole('ROLE_ADMIN');
                 $em->persist($user);
                 $em->flush();
                 return $this->msgResponse(0, '恭喜', '添加成功', 'kit_rbac_user');
