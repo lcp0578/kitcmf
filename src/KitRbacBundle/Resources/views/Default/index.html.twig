@@ -4,6 +4,7 @@
 		<div class="panel-head">
 			<strong>管理员列表</strong>
 		</div>
+		{% if pagination is defined and pagination is not empty %}
 		<div class="padding border-bottom">
 			<input type="button" class="button button-small checkall"
 				name="checkall" checkfor="id" value="全选" /> <a href="{{ path('kit_rbac_user_add') }}" type="button"
@@ -21,7 +22,7 @@
 				<th width="100">修改时间</th>
 				<th width="100">操作</th>
 			</tr>
-			{% for u in users %}
+			{% for u in pagination %}
 			<tr>
 				<td><input type="checkbox" name="id" value="1" /></td>
 				<td>{{ u.username }}</td>
@@ -34,21 +35,8 @@
 			</tr>
 			{% endfor %}
 		</table>
-		<div class="panel-foot text-center">
-			<ul class="pagination">
-				<li><a href="#">上一页</a></li>
-			</ul>
-			<ul class="pagination pagination-group">
-				<li><a href="#">1</a></li>
-				<li class="active"><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-			</ul>
-			<ul class="pagination">
-				<li><a href="#">下一页</a></li>
-			</ul>
-		</div>
+		{{ knp_pagination_render(pagination,'pagination.html.twig') }}
+		{% endif %}
 	</div>
 </form>
 {% endblock %}

@@ -11,13 +11,21 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DefaultController extends BaseController
 {
-        
-    public function indexAction()
+
+    public function indexAction($page)
     {
-        $reposity = $this->getDoctrine()->getRepository('KitRbacBundle:User');
-        $users = $reposity->getList();
+        if($page < 1) $page = 1;
+        $pagesize = 3;
+        $repository = $this->getDoctrine()->getRepository('KitRbacBundle:User');
+        $list = $repository->getList();
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $list,
+            $page,
+            $pagesize
+        );
         return $this->render('KitRbacBundle:Default:index.html.twig', [
-            'users' => $users
+            'pagination' => $pagination
         ]);
     }
     /**

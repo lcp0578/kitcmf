@@ -1,6 +1,8 @@
 kit_rbac_user:
-    path:     /
-    defaults: { _controller: KitRbacBundle:Default:index }
+    path:     /user/{page}
+    defaults: { _controller: KitRbacBundle:Default:index, page: 1 }
+    requirements:
+        page: '\d+'
 kit_rbac_user_add:
     path:     /add
     defaults: { _controller: KitRbacBundle:Default:add }
