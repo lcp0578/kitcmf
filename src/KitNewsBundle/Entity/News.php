@@ -3,6 +3,7 @@
 namespace KitNewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * News
@@ -87,11 +88,19 @@ class News
 
     /**
      * @var int
-     *
+     * 
      * @ORM\Column(name="content_id", type="integer", options={"comment": "内容ID"})
      */
     private $contentId;
 
+    /**
+     * One news has one content
+     *
+     * @ORM\OneToOne(targetEntity="NewsContent")
+     * @ORM\JoinColumn(name="content_id", referencedColumnName="id")
+     */
+    private $content;
+    
     /**
      * @var \DateTime
      *
@@ -113,7 +122,10 @@ class News
      */
     private $level;
     
-    
+    public function __construct()
+    {
+        $this->content = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -292,52 +304,20 @@ class News
         return $this->status;
     }
 
-    /**
-     * Set classifyId
-     *
-     * @param integer $classifyId
-     *
-     * @return News
-     */
-//     public function setClassifyId($classifyId)
-//     {
-//         $this->classifyId = $classifyId;
-
-//         return $this;
-//     }
-
-    /**
-     * Get classifyId
-     *
-     * @return int
-     */
-//     public function getClassifyId()
-//     {
-//         return $this->classifyId;
-//     }
-
-    /**
-     * Set contentId
-     *
-     * @param integer $contentId
-     *
-     * @return News
-     */
-    public function setContentId($contentId)
+    public function setContent(NewsContent $content)
     {
-        $this->contentId = $contentId;
-
+        $this->content = $content;
         return $this;
     }
 
     /**
-     * Get contentId
+     * Get content
      *
-     * @return int
+     * @return string
      */
-    public function getContentId()
+    public function getContent()
     {
-        return $this->contentId;
+        return $this->content;
     }
 
     /**

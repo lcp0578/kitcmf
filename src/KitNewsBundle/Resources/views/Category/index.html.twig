@@ -7,8 +7,8 @@
 		{% if pagination is defined and pagination is not empty %}
 		<div class="padding border-bottom">
 			<input type="button" class="button button-small checkall"
-				name="checkall" checkfor="id" value="全选" /> <a href="{{ path('kit_rbac_role_add') }}" type="button"
-				class="button button-small border-green">添加角色</a> <input
+				name="checkall" checkfor="id" value="全选" /> <a href="{{ path('kit_news_category_add') }}" type="button"
+				class="button button-small border-green">添加分类</a> <input
 				type="button" class="button button-small border-yellow" value="批量删除" />
 		</div>
 		<table class="table table-hover">
@@ -34,4 +34,23 @@
 		{{ knp_pagination_render(pagination,'pagination.html.twig') }}
 		{% endif %}
 	</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script type="text/javascript">
+    $('.update-btn').on('click', function(){
+        var id = $(this).attr('data');
+        layer.open({
+          type: 2,
+          title: false,
+          area: ['930px', '360px'],
+          shade: 0.8,
+          closeBtn: 1,
+          shadeClose: true,
+          content: Routing.generate('kit_news_category_update', {id:id})
+        });
+    });
+    </script>
 {% endblock %}

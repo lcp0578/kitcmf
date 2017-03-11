@@ -19,8 +19,7 @@ class NewsContentType extends AbstractType
                     'height' => '240px'
                 ],
                 'label' => '文章内容'
-            ])
-            ->add('submit', SubmitType::class);
+            ]);
     }
     
     public function configureOptions(OptionsResolver $resolver)

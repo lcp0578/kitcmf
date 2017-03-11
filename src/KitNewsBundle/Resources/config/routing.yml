@@ -9,11 +9,15 @@ kit_news_category:
     defaults: { _controller: KitNewsBundle:Category:index, page: 1 }
     requirements:
         page: '\d+'
+    options:
+        expose: true
 kit_news_category_add:
     path:     /category/add
     defaults: { _controller: KitNewsBundle:Category:add }
 kit_news_category_update:
     path:     /category/update/{id}
-    defaults: { _controller: KitNewsBundle:Category:update }
+    defaults: { _controller: KitNewsBundle:Category:update, id: 0 }
     requirements:
         id: '\d+'
+    options:
+        expose: true

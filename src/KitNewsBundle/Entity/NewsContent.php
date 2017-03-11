@@ -34,7 +34,13 @@ class NewsContent
      * @ORM\Column(name="news_id", type="integer", options={"comment": "新闻ID"})
      */
     private $newsId;
-
+    /**
+     * 
+     * @var News
+     * 
+     * @ORM\OneToMany(targetEntity="News", mappedBy="content")
+     */
+    private $news;
 
     /**
      * Get id

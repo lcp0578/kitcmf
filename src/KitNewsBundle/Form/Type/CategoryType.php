@@ -21,7 +21,7 @@ class CategoryType extends AbstractType
                     return $repo->getParentCategory();
                 },
                 'choice_label' => 'name',
-                'label' => '用户组'
+                'label' => '父级分类'
             ])
             ->add('name', null, [
                 'label' => '分类名称'

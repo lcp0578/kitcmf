@@ -87,7 +87,7 @@ class CategoryController extends BaseController
             }
         }
         return $this->render('KitNewsBundle:Category:update.html.twig', [
-            'form' => $form->createView(),
+            'update_form' => $form->createView(),
             'errors' => $errors
         ]);
     }
