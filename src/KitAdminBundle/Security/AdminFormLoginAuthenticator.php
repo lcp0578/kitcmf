@@ -13,6 +13,8 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 class AdminFormLoginAuthenticator extends AbstractFormLoginAuthenticator
 {
@@ -46,9 +48,13 @@ class AdminFormLoginAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        $username = $credentials['username'];
+        try {
+            return $userProvider->loadUserByUsername($credentials['username']);
+        }catch (UsernameNotFoundException $e) {
+            throw new CustomUserMessageAuthenticationException();
+        }
         
-        return $userProvider->loadUserByUsername($username);
+        
     }
 
     public function checkCredentials($credentials, UserInterface $user)
@@ -57,8 +63,7 @@ class AdminFormLoginAuthenticator extends AbstractFormLoginAuthenticator
         if ($this->encoder->isPasswordValid($user, $credentials['password'] . $salt)) {
             return true;
         }
-        
-        throw new BadCredentialsException();
+        throw new CustomUserMessageAuthenticationException('密码错误');
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
