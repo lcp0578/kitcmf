@@ -1,3 +1,7 @@
+kit_house:
+    resource: "@KitHouseBundle/Resources/config/routing.yml"
+    prefix:   /
+
 kit_dnspod:
     resource: "@KitDnspodBundle/Resources/config/routing.yml"
     prefix:   /dnspod

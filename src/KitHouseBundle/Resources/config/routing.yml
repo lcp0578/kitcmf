@@ -1,0 +1,3 @@
+kit_house_homepage:
+    path:     /
+    defaults: { _controller: KitHouseBundle:Default:index }
