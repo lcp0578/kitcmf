@@ -26,7 +26,7 @@
     			<div class="mainer">
     				<div class="admin-navbar">
     					<span class="float-right">
-    	                    <a class="button button-little bg-main" href="http://www.pintuer.com" target="_blank">前台首页</a>
+    	                    <a class="button button-little bg-main" href="{{ path('kit_web_homepage') }}" target="_blank">前台首页</a>
     	                    <a class="button button-little bg-yellow" href="{{ path('kit_admin_logout') }}">注销登录</a>
     	                </span>
     	                {%set menuList = knp_menu_get('KitMenuBundle:AdminBuilder:mainMenu')%}
@@ -65,7 +65,7 @@
     					{{ dump(app.request) }} #}
     				</div>
     				<div class="admin-bread">
-    					<span>您好，{{ app.user.username }}，欢迎您的光临。</span>
+    					<span>您好，{% if app.user %}{{ app.user.username }}{% else %} guest {% endif %}，欢迎您的光临。</span>
     					<ul class="bread">
     						<li><a href="index.html" class="icon-home"> 开始</a></li>
     						<li>后台首页</li>
