@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * News
  *
- * @ORM\Table(name="News")
+ * @ORM\Table(name="news")
  * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\newsRepository")
  */
 class News
