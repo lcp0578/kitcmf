@@ -65,7 +65,7 @@
     					{{ dump(app.request) }} #}
     				</div>
     				<div class="admin-bread">
-    					<span>您好，admin，欢迎您的光临。</span>
+    					<span>您好，{{ app.user.username }}，欢迎您的光临。</span>
     					<ul class="bread">
     						<li><a href="index.html" class="icon-home"> 开始</a></li>
     						<li>后台首页</li>
