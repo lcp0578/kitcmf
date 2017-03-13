@@ -128,5 +128,13 @@
             domUtils.removeAttributes(btn, ["disabled"]);
         }
     }
+    // add fulltext field
+    $("#form").submit( function(eventObj) {
+        $('<input />').attr('type', 'hidden')
+            .attr('name', "something")
+            .attr('value', "something")
+            .appendTo('#form');
+        return true;
+    });
 </script>
 {% endblock %}
