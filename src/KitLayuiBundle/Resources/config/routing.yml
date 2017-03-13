@@ -1,0 +1,3 @@
+kit_layui_homepage:
+    path:     /
+    defaults: { _controller: KitLayuiBundle:Default:index }

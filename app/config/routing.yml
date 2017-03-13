@@ -1,3 +1,7 @@
+kit_layui:
+    resource: "@KitLayuiBundle/Resources/config/routing.yml"
+    prefix:   /
+
 kit_house:
     resource: "@KitHouseBundle/Resources/config/routing.yml"
     prefix:   /
