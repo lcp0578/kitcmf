@@ -9,3 +9,4 @@
 !/var/sessions
 /var/sessions/*
 .idea/
+/web/star/*

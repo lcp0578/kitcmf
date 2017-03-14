@@ -31,3 +31,6 @@ kit_web_logout:
 kit_web_register:
     path:     /register
     defaults: { _controller: KitWebBundle:User:register }
+kit_web_test_update:
+    path:     /NewKwGameBox/getGameBoxUpdateInfo
+    defaults: { _controller: KitWebBundle:Test:index }
