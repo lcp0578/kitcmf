@@ -25,7 +25,7 @@ class RoleType extends AbstractType
             ],
             'expanded' => true,
             'label' => '状态',
-             'data' => 1,
+            'data' => 1,
             'label_attr' => [
                 'class' => 'radio-inline'
             ]

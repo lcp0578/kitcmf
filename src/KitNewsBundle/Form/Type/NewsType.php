@@ -7,6 +7,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use KitBaseBundle\Form\Type\FulltextType;
 
 class NewsType extends AbstractType
 {
@@ -28,9 +30,12 @@ class NewsType extends AbstractType
             ->add('introduction', TextareaType::class, [
                 'label' => '简介'
             ])
-            ->add('content', CollectionType::class, [
-                'entry_type' => NewsContentType::class,
-                'allow_add' => true,
+            ->add('content', FulltextType::class, [
+                'attr' => [
+                    'id' => 'myEditor',
+                    'width' => '80%',
+                    'height' => '240px'
+                ],
                 'label' => '文章内容'
             ])
             ->add('submit', SubmitType::class, [

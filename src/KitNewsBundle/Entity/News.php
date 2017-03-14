@@ -96,7 +96,7 @@ class News
     /**
      * One news has one content
      *
-     * @ORM\OneToOne(targetEntity="NewsContent")
+     * @ORM\OneToOne(targetEntity="NewsContent", inversedBy="news")
      * @ORM\JoinColumn(name="content_id", referencedColumnName="id")
      */
     private $content;
@@ -303,7 +303,13 @@ class News
     {
         return $this->status;
     }
-
+    
+    /**
+     * Set content
+     * 
+     * @param NewsContent $content
+     * @return \KitNewsBundle\Entity\News
+     */
     public function setContent(NewsContent $content)
     {
         $this->content = $content;

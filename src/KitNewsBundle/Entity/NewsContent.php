@@ -38,7 +38,7 @@ class NewsContent
      * 
      * @var News
      * 
-     * @ORM\OneToMany(targetEntity="News", mappedBy="content")
+     * @ORM\OneToOne(targetEntity="News", mappedBy="content")
      */
     private $news;
 
@@ -77,15 +77,15 @@ class NewsContent
     }
 
     /**
-     * Set newsId
+     * Set news
      *
      * @param integer $newsId
      *
      * @return NewsContent
      */
-    public function setNewsId($newsId)
+    public function setNews($news)
     {
-        $this->newsId = $newsId;
+        $this->news = $news;
 
         return $this;
     }
@@ -95,9 +95,9 @@ class NewsContent
      *
      * @return int
      */
-    public function getNewsId()
+    public function getNews()
     {
-        return $this->newsId;
+        return $this->news;
     }
 }
 
