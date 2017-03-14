@@ -29,7 +29,7 @@
     	                    <a class="button button-little bg-main" href="{{ path('kit_web_homepage') }}" target="_blank">前台首页</a>
     	                    <a class="button button-little bg-yellow" href="{{ path('kit_admin_logout') }}">注销登录</a>
     	                </span>
-    	                {%set menuList = knp_menu_get('KitMenuBundle:AdminBuilder:mainMenu')%}
+    	                {%set menuList = knp_menu_get('KitAdminBundle:AdminBuilder:mainMenu')%}
     	                {% set currentMenu = knp_menu_get_current_item(menuList) %}
     	                {%if menuList.children is defined and menuList.children is not empty %}
 {#     					<ul class="nav nav-inline admin-nav">#}
