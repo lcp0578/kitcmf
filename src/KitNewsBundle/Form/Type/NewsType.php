@@ -30,14 +30,15 @@ class NewsType extends AbstractType
             ->add('introduction', TextareaType::class, [
                 'label' => '简介'
             ])
-            ->add('content', FulltextType::class, [
-                'attr' => [
-                    'id' => 'myEditor',
-                    'width' => '80%',
-                    'height' => '240px'
-                ],
-                'label' => '文章内容'
-            ])
+            ->add('content', NewsContentType::class)
+//             ->add('content', FulltextType::class, [
+//                 'attr' => [
+//                     'id' => 'myEditor',
+//                     'width' => '80%',
+//                     'height' => '240px'
+//                 ],
+//                 'label' => '文章内容'
+//             ])
             ->add('submit', SubmitType::class, [
                 'label' => '提交'
             ]);

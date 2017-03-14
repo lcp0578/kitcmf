@@ -7,7 +7,12 @@
 {% block main_content %}
     <div class="line">
         <div class="x4">
-            {{ form(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-x'}}) }}
+            {% for error in errors %}
+            <div class="alert alert-yellow">
+                <span class="close rotate-hover"></span><strong>提示：</strong>{{ error }}
+            </div>
+            {% endfor %}
+            {{ form(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-x', 'id': 'form'}}) }}
         </div>
     </div> 
 {% endblock %}
@@ -131,9 +136,9 @@
     // add fulltext field
     $("#form").submit( function(eventObj) {
         $('<input />').attr('type', 'hidden')
-            .attr('name', "something")
-            .attr('value', "something")
-            .appendTo('#form');
+            .attr('name', "news[content]")
+            .attr('value', UM.getEditor('myEditor').getContent())
+            .appendTo($(this));
         return true;
     });
 </script>
