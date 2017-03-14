@@ -14,9 +14,10 @@ class TestController extends Controller
     {
         $type = $request->query->get('versionType', 'default version type');
         $version = $request->query->get('curVersion', 'current version');
-        file_put_contents('version.log', '['.date('Y-m-d H:i:s').']' . $type .'|'. $version);
+        file_put_contents('version.log', '['.date('Y-m-d H:i:s').']' . $type .'|'. $version, FILE_APPEND);
         $desVersion = '3.0.0.0';
         $versions = [
+            '2.9.8.0_qh0' => '3.0.0.1',
             '2.9.8.0_wo0' => '3.0.0.1',
             '2.9.0.0_bcs6' => '3.0.0.1'
         ];
