@@ -8,6 +8,10 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 services:
+    twig.extension.text:
+           class: Twig_Extensions_Extension_Text
+           tags:
+               - { name: twig.extension }
     kit_web.form_login_authenticator:
         class: KitWebBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder"]
