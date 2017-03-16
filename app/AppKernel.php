@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             new KitDnspodBundle\KitDnspodBundle(),
             new KitHouseBundle\KitHouseBundle(),
             new KitLayuiBundle\KitLayuiBundle(),
+            new KitBbsBundle\KitBbsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

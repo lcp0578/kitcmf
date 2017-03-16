@@ -1,0 +1,3 @@
+kit_bbs_homepage:
+    path:     /
+    defaults: { _controller: KitBbsBundle:Default:index }

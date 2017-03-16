@@ -1,10 +1,14 @@
+kit_bbs:
+    resource: "@KitBbsBundle/Resources/config/routing.yml"
+    prefix:   /bbs
+
 kit_layui:
     resource: "@KitLayuiBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /layui
 
 kit_house:
     resource: "@KitHouseBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /house
 
 kit_dnspod:
     resource: "@KitDnspodBundle/Resources/config/routing.yml"
@@ -12,7 +16,7 @@ kit_dnspod:
 
 kit_video:
     resource: "@KitVideoBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /video
 
 kit_web:
     resource: "@KitWebBundle/Resources/config/routing.yml"
