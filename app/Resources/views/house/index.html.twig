@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Houses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sellstatus</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Trait</th>
+                <th>Address</th>
+                <th>Areaid</th>
+                <th>Propertyfee</th>
+                <th>Propertycompany</th>
+                <th>Location</th>
+                <th>Pricetype</th>
+                <th>Price</th>
+                <th>Owership</th>
+                <th>Telephone</th>
+                <th>Selladdress</th>
+                <th>Bus</th>
+                <th>Education</th>
+                <th>Hospital</th>
+                <th>Bank</th>
+                <th>Planarea</th>
+                <th>Buildarea</th>
+                <th>Households</th>
+                <th>Carport</th>
+                <th>Plotratio</th>
+                <th>Greeningrate</th>
+                <th>Opendate</th>
+                <th>Completiondate</th>
+                <th>Buildingtype</th>
+                <th>Developers</th>
+                <th>Decoratetype</th>
+                <th>Bbs</th>
+                <th>Tags</th>
+                <th>Setprice</th>
+                <th>Content</th>
+                <th>Thumbone</th>
+                <th>Thumbtwo</th>
+                <th>Thumbthree</th>
+                <th>Editor</th>
+                <th>Level</th>
+                <th>Status</th>
+                <th>Hits</th>
+                <th>Tplid</th>
+                <th>Createat</th>
+                <th>Updateat</th>
+                <th>Ip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for house in houses %}
+            <tr>
+                <td><a href="{{ path('house_show', { 'id': house.id }) }}">{{ house.id }}</a></td>
+                <td>{{ house.sellStatus }}</td>
+                <td>{{ house.title }}</td>
+                <td>{{ house.type }}</td>
+                <td>{{ house.trait }}</td>
+                <td>{{ house.address }}</td>
+                <td>{{ house.areaId }}</td>
+                <td>{{ house.propertyFee }}</td>
+                <td>{{ house.propertyCompany }}</td>
+                <td>{{ house.location }}</td>
+                <td>{{ house.priceType }}</td>
+                <td>{{ house.price }}</td>
+                <td>{{ house.owership }}</td>
+                <td>{{ house.telephone }}</td>
+                <td>{{ house.sellAddress }}</td>
+                <td>{{ house.bus }}</td>
+                <td>{{ house.education }}</td>
+                <td>{{ house.hospital }}</td>
+                <td>{{ house.bank }}</td>
+                <td>{{ house.planArea }}</td>
+                <td>{{ house.buildArea }}</td>
+                <td>{{ house.households }}</td>
+                <td>{{ house.carport }}</td>
+                <td>{{ house.plotRatio }}</td>
+                <td>{{ house.greeningRate }}</td>
+                <td>{{ house.openDate }}</td>
+                <td>{{ house.completionDate }}</td>
+                <td>{{ house.buildingType }}</td>
+                <td>{{ house.developers }}</td>
+                <td>{{ house.decorateType }}</td>
+                <td>{{ house.bbs }}</td>
+                <td>{{ house.tags }}</td>
+                <td>{{ house.setPrice }}</td>
+                <td>{{ house.content }}</td>
+                <td>{{ house.thumbOne }}</td>
+                <td>{{ house.thumbTwo }}</td>
+                <td>{{ house.thumbThree }}</td>
+                <td>{{ house.editor }}</td>
+                <td>{{ house.level }}</td>
+                <td>{{ house.status }}</td>
+                <td>{{ house.hits }}</td>
+                <td>{{ house.tplId }}</td>
+                <td>{% if house.createAt %}{{ house.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if house.updateAt %}{{ house.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ house.ip }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('house_show', { 'id': house.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('house_edit', { 'id': house.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('house_new') }}">Create a new house</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+housealbumitem_index:
+    path:     /
+    defaults: { _controller: "KitHouseBundle:HouseAlbumItem:index" }
+    methods:  GET
+
+housealbumitem_show:
+    path:     /{id}/show
+    defaults: { _controller: "KitHouseBundle:HouseAlbumItem:show" }
+    methods:  GET
+
+housealbumitem_new:
+    path:     /new
+    defaults: { _controller: "KitHouseBundle:HouseAlbumItem:new" }
+    methods:  [GET, POST]
+
+housealbumitem_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KitHouseBundle:HouseAlbumItem:edit" }
+    methods:  [GET, POST]
+
+housealbumitem_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KitHouseBundle:HouseAlbumItem:delete" }
+    methods:  DELETE

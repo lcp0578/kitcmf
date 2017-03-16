@@ -1,0 +1,24 @@
+house_index:
+    path:     /
+    defaults: { _controller: "KitHouseBundle:House:index" }
+    methods:  GET
+
+house_show:
+    path:     /{id}/show
+    defaults: { _controller: "KitHouseBundle:House:show" }
+    methods:  GET
+
+house_new:
+    path:     /new
+    defaults: { _controller: "KitHouseBundle:House:new" }
+    methods:  [GET, POST]
+
+house_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KitHouseBundle:House:edit" }
+    methods:  [GET, POST]
+
+house_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KitHouseBundle:House:delete" }
+    methods:  DELETE

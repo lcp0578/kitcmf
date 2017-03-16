@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>House</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ house.id }}</td>
+            </tr>
+            <tr>
+                <th>Sellstatus</th>
+                <td>{{ house.sellStatus }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ house.title }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ house.type }}</td>
+            </tr>
+            <tr>
+                <th>Trait</th>
+                <td>{{ house.trait }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ house.address }}</td>
+            </tr>
+            <tr>
+                <th>Areaid</th>
+                <td>{{ house.areaId }}</td>
+            </tr>
+            <tr>
+                <th>Propertyfee</th>
+                <td>{{ house.propertyFee }}</td>
+            </tr>
+            <tr>
+                <th>Propertycompany</th>
+                <td>{{ house.propertyCompany }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ house.location }}</td>
+            </tr>
+            <tr>
+                <th>Pricetype</th>
+                <td>{{ house.priceType }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ house.price }}</td>
+            </tr>
+            <tr>
+                <th>Owership</th>
+                <td>{{ house.owership }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ house.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Selladdress</th>
+                <td>{{ house.sellAddress }}</td>
+            </tr>
+            <tr>
+                <th>Bus</th>
+                <td>{{ house.bus }}</td>
+            </tr>
+            <tr>
+                <th>Education</th>
+                <td>{{ house.education }}</td>
+            </tr>
+            <tr>
+                <th>Hospital</th>
+                <td>{{ house.hospital }}</td>
+            </tr>
+            <tr>
+                <th>Bank</th>
+                <td>{{ house.bank }}</td>
+            </tr>
+            <tr>
+                <th>Planarea</th>
+                <td>{{ house.planArea }}</td>
+            </tr>
+            <tr>
+                <th>Buildarea</th>
+                <td>{{ house.buildArea }}</td>
+            </tr>
+            <tr>
+                <th>Households</th>
+                <td>{{ house.households }}</td>
+            </tr>
+            <tr>
+                <th>Carport</th>
+                <td>{{ house.carport }}</td>
+            </tr>
+            <tr>
+                <th>Plotratio</th>
+                <td>{{ house.plotRatio }}</td>
+            </tr>
+            <tr>
+                <th>Greeningrate</th>
+                <td>{{ house.greeningRate }}</td>
+            </tr>
+            <tr>
+                <th>Opendate</th>
+                <td>{{ house.openDate }}</td>
+            </tr>
+            <tr>
+                <th>Completiondate</th>
+                <td>{{ house.completionDate }}</td>
+            </tr>
+            <tr>
+                <th>Buildingtype</th>
+                <td>{{ house.buildingType }}</td>
+            </tr>
+            <tr>
+                <th>Developers</th>
+                <td>{{ house.developers }}</td>
+            </tr>
+            <tr>
+                <th>Decoratetype</th>
+                <td>{{ house.decorateType }}</td>
+            </tr>
+            <tr>
+                <th>Bbs</th>
+                <td>{{ house.bbs }}</td>
+            </tr>
+            <tr>
+                <th>Tags</th>
+                <td>{{ house.tags }}</td>
+            </tr>
+            <tr>
+                <th>Setprice</th>
+                <td>{{ house.setPrice }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ house.content }}</td>
+            </tr>
+            <tr>
+                <th>Thumbone</th>
+                <td>{{ house.thumbOne }}</td>
+            </tr>
+            <tr>
+                <th>Thumbtwo</th>
+                <td>{{ house.thumbTwo }}</td>
+            </tr>
+            <tr>
+                <th>Thumbthree</th>
+                <td>{{ house.thumbThree }}</td>
+            </tr>
+            <tr>
+                <th>Editor</th>
+                <td>{{ house.editor }}</td>
+            </tr>
+            <tr>
+                <th>Level</th>
+                <td>{{ house.level }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ house.status }}</td>
+            </tr>
+            <tr>
+                <th>Hits</th>
+                <td>{{ house.hits }}</td>
+            </tr>
+            <tr>
+                <th>Tplid</th>
+                <td>{{ house.tplId }}</td>
+            </tr>
+            <tr>
+                <th>Createat</th>
+                <td>{% if house.createAt %}{{ house.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updateat</th>
+                <td>{% if house.updateAt %}{{ house.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ house.ip }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('house_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('house_edit', { 'id': house.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

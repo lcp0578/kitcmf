@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Housealbums list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Houseid</th>
+                <th>Title</th>
+                <th>Introduction</th>
+                <th>Editor</th>
+                <th>Status</th>
+                <th>Createat</th>
+                <th>Updateat</th>
+                <th>Ip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for houseAlbum in houseAlbums %}
+            <tr>
+                <td><a href="{{ path('house_show', { 'id': houseAlbum.id }) }}">{{ houseAlbum.id }}</a></td>
+                <td>{{ houseAlbum.type }}</td>
+                <td>{{ houseAlbum.houseId }}</td>
+                <td>{{ houseAlbum.title }}</td>
+                <td>{{ houseAlbum.introduction }}</td>
+                <td>{{ houseAlbum.editor }}</td>
+                <td>{{ houseAlbum.status }}</td>
+                <td>{% if houseAlbum.createAt %}{{ houseAlbum.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if houseAlbum.updateAt %}{{ houseAlbum.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ houseAlbum.ip }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('house_show', { 'id': houseAlbum.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('house_edit', { 'id': houseAlbum.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('house_new') }}">Create a new houseAlbum</a>
+        </li>
+    </ul>
+{% endblock %}

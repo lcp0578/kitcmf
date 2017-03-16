@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Housealbumitems list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Albumid</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Uri</th>
+                <th>Sort</th>
+                <th>Status</th>
+                <th>Createat</th>
+                <th>Updateat</th>
+                <th>Ip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for houseAlbumItem in houseAlbumItems %}
+            <tr>
+                <td><a href="{{ path('housealbumitem_show', { 'id': houseAlbumItem.id }) }}">{{ houseAlbumItem.id }}</a></td>
+                <td>{{ houseAlbumItem.albumId }}</td>
+                <td>{{ houseAlbumItem.title }}</td>
+                <td>{{ houseAlbumItem.description }}</td>
+                <td>{{ houseAlbumItem.uri }}</td>
+                <td>{{ houseAlbumItem.sort }}</td>
+                <td>{{ houseAlbumItem.status }}</td>
+                <td>{% if houseAlbumItem.createAt %}{{ houseAlbumItem.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if houseAlbumItem.updateAt %}{{ houseAlbumItem.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ houseAlbumItem.ip }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('housealbumitem_show', { 'id': houseAlbumItem.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('housealbumitem_edit', { 'id': houseAlbumItem.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('housealbumitem_new') }}">Create a new houseAlbumItem</a>
+        </li>
+    </ul>
+{% endblock %}

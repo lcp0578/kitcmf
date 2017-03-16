@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Housealbumitem</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ houseAlbumItem.id }}</td>
+            </tr>
+            <tr>
+                <th>Albumid</th>
+                <td>{{ houseAlbumItem.albumId }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ houseAlbumItem.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ houseAlbumItem.description }}</td>
+            </tr>
+            <tr>
+                <th>Uri</th>
+                <td>{{ houseAlbumItem.uri }}</td>
+            </tr>
+            <tr>
+                <th>Sort</th>
+                <td>{{ houseAlbumItem.sort }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ houseAlbumItem.status }}</td>
+            </tr>
+            <tr>
+                <th>Createat</th>
+                <td>{% if houseAlbumItem.createAt %}{{ houseAlbumItem.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updateat</th>
+                <td>{% if houseAlbumItem.updateAt %}{{ houseAlbumItem.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ houseAlbumItem.ip }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('housealbumitem_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('housealbumitem_edit', { 'id': houseAlbumItem.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

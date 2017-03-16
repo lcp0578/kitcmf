@@ -1,3 +1,15 @@
+kit_house_home:
+    resource: "@KitHouseBundle/Resources/config/routing/house.yml"
+    prefix:   /house
+
+kit_house_album:
+    resource: "@KitHouseBundle/Resources/config/routing/housealbum.yml"
+    prefix:   /house/album
+
+kit_house_album_item:
+    resource: "@KitHouseBundle/Resources/config/routing/housealbumitem.yml"
+    prefix:   /house/item
+
 kit_house_homepage:
     path:     /
     defaults: { _controller: KitHouseBundle:Default:index }
