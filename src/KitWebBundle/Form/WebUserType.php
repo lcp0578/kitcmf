@@ -13,13 +13,17 @@ class WebUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-        ->add('name', TextType::class)
-        ->add('email', EmailType::class)
+         $builder
+        ->add('name', TextType::class, [
+            'label' => '用户名'
+        ])
+        ->add('email', EmailType::class, [
+            'label' => '邮箱'
+        ])
         ->add('plainPassword', RepeatedType::class, [
             'type' => PasswordType::class,
-            'first_options' => ['label' => 'Password'],
-            'second_options' => ['label' => 'Confirm Password'],
+            'first_options' => ['label' => '密码'],
+            'second_options' => ['label' => '确认密码'],
         ]);
     }
 
