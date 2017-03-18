@@ -1,6 +1,6 @@
 kit_faq:
     resource: "@KitFaqBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 
 kit_bbs:
