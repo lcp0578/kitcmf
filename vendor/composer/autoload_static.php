@@ -107,6 +107,7 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         'C' => 
         array (
             'CoolCaptcha\\' => 12,
+            'CodeWave\\MysqlDumperCommandBundle\\' => 34,
         ),
     );
 
@@ -298,6 +299,10 @@ class ComposerStaticInit11ed4cd401fa9de7d75d42ec4870d15d
         'CoolCaptcha\\' => 
         array (
             0 => __DIR__ . '/..' . '/stil/cool-captcha/src',
+        ),
+        'CodeWave\\MysqlDumperCommandBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cdwv/mysql-dumper-command-bundle',
         ),
     );
 

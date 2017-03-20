@@ -53,5 +53,6 @@ return array(
     'Doctrine\\Bundle\\DoctrineCacheBundle\\' => array($vendorDir . '/doctrine/doctrine-cache-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     'CoolCaptcha\\' => array($vendorDir . '/stil/cool-captcha/src'),
+    'CodeWave\\MysqlDumperCommandBundle\\' => array($vendorDir . '/cdwv/mysql-dumper-command-bundle'),
     '' => array($baseDir . '/src'),
 );
