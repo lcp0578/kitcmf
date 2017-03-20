@@ -1,3 +1,7 @@
+kit_command:
+    resource: "@KitCommandBundle/Resources/config/routing.yml"
+    prefix:   /command
+
 kit_faq:
     resource: "@KitFaqBundle/Resources/config/routing.yml"
     prefix:   /admin

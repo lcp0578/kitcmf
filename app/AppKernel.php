@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new CodeWave\MysqlDumperCommandBundle\CodeWaveMysqlDumperCommandBundle(),
             new KitAdminBundle\KitAdminBundle(),
             new KitRbacBundle\KitRbacBundle(),
             new KitNewsBundle\KitNewsBundle(),
@@ -44,6 +45,7 @@ class AppKernel extends Kernel
             new KitLayuiBundle\KitLayuiBundle(),
             new KitBbsBundle\KitBbsBundle(),
             new KitFaqBundle\KitFaqBundle(),
+            new KitCommandBundle\KitCommandBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
