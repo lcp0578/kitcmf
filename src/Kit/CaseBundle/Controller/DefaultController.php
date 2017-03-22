@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends BaseController
 {
     /**
-     * @Route("/case", name="kit_case_index")
+     * @Route("/addmin_case", name="kit_case_index")
      */
     public function indexAction()
     {
