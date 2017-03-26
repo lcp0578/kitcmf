@@ -1,0 +1,3 @@
+kit_charts_homepage:
+    path:     /
+    defaults: { _controller: KitChartsBundle:Default:index }
