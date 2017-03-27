@@ -1,0 +1,3 @@
+kit_friend_homepage:
+    path:     /
+    defaults: { _controller: KitFriendBundle:Default:index }
