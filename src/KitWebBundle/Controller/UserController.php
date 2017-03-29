@@ -11,6 +11,7 @@ class UserController extends Controller
 
     public function indexAction()
     {
+        $user = $this->getUser();
         return $this->render('KitWebBundle:User:index.html.twig');
     }
 
