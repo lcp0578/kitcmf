@@ -10,3 +10,6 @@ kit_admin_login_check:
 kit_admin_logout:
     path:     /logout
     defaults: { _controller: KitAdminBundle:Login:logout }
+kit_admin_upload:
+    path:     /upload
+    defaults: { _controller: KitAdminBundle:Upload:index }
