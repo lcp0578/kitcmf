@@ -92,8 +92,9 @@ class CategoryController extends BaseController
         ]);
     }
     
-    public function delAction($id)
+    public function deleteAction(Request $request)
     {
+        $id = $request->request->get('id');
         $category = $this->getDoctrine()
             ->getRepository('KitNewsBundle:Category')
             ->find($id);

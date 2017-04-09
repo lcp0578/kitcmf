@@ -81,6 +81,13 @@ class Category
     private $children;
     
     /**
+     * One Category has Many News.
+     *
+     * @ORM\OneToMany(targetEntity="News", mappedBy="category")
+     */
+    private $news;
+    
+    /**
      * 
      */
     public function __construct()

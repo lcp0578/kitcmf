@@ -8,8 +8,7 @@
 		<div class="padding border-bottom">
 			<input type="button" class="button button-small checkall"
 				name="checkall" checkfor="id" value="全选" /> <a href="{{ path('kit_news_category_add') }}" type="button"
-				class="button button-small border-green">添加分类</a> <input
-				type="button" class="button button-small border-yellow" value="批量删除" />
+				class="button button-small border-green">添加分类</a>
 		</div>
 		<table class="table table-hover">
 			<tr>
@@ -20,14 +19,13 @@
 				<th width="100">操作</th>
 			</tr>
 			{% for item in pagination %}
-			<tr>
+			<tr id="item_{{ item.id }}">
 				<td><input type="checkbox" name="id" value="1" /></td>
 				<td>{{ item.name }}</td>
 				<td>{{ item.updateAt | date('Y-m-d') }}</td>
 				<td>{% if item.status == 1 %}启用{% else %}禁用{% endif %}</td>
-				<td><a class="button border-blue button-little" href="{{ path('kit_news_category_update', {'id': item.id}) }}">修改</a> <a
-					class="button border-yellow button-little" href="#" onclick="{
-					if(confirm('确认删除?')){return true;}returnfalse;}">删除</a></td>
+				<td><a class="button border-blue button-little" href="{{ path('kit_news_category_update', {'id': item.id}) }}">修改</a> <a class="button border-yellow button-little" href="#" onclick="{
+					if(confirm('确认删除?')){return delItem({{ item.id }});}returnfalse;}">删除</a></td>
 			</tr>
 			{% endfor %}
 		</table>
@@ -37,20 +35,16 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-    <script type="text/javascript">
-    $('.update-btn').on('click', function(){
-        var id = $(this).attr('data');
-        layer.open({
-          type: 2,
-          title: false,
-          area: ['930px', '360px'],
-          shade: 0.8,
-          closeBtn: 1,
-          shadeClose: true,
-          content: Routing.generate('kit_news_category_update', {id:id})
-        });
-    });
-    </script>
+   <script>
+   function delItem(id){
+	   $.post("{{ path('kit_news_category_delete') }}", { id: id },
+			   function(data){
+			     if(data.status == 1){
+				     $('#item_'+id).hide();
+				     alert(data.msg);
+				     }else{
+					     alert(data.msg);}
+			   }, "json");
+	}
+</script>
 {% endblock %}
