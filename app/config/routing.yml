@@ -1,10 +1,10 @@
 kit_friend:
     resource: "@KitFriendBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /friend
 
 kit_charts:
     resource: "@KitChartsBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /charts
 
 kit_command:
     resource: "@KitCommandBundle/Resources/config/routing.yml"
@@ -12,7 +12,7 @@ kit_command:
 
 kit_faq:
     resource: "@KitFaqBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /admin/faq
 
 
 kit_bbs:
