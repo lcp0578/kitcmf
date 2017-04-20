@@ -39,6 +39,7 @@
     um.addListener('focus',function(){
         $('#focush2').html('')
     });
+    UM.getEditor('myEditor').setContent('{{ content | raw }}');
     //按钮的操作
     function insertHtml() {
         var value = prompt('插入html代码', '');

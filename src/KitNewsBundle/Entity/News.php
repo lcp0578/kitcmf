@@ -4,12 +4,18 @@ namespace KitNewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * News
  *
  * @ORM\Table(name="news")
- * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\newsRepository")
+ * @ORM\Entity(repositoryClass="KitNewsBundle\Repository\NewsRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"title"},
+ *     message="标题已存在"
+ * )
  */
 class News
 {
@@ -24,7 +30,7 @@ class News
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="请填写新闻标题")
      * @ORM\Column(name="title", type="string", length=255, options={"comment": "新闻标题"})
      */
     private $title;
@@ -32,27 +38,32 @@ class News
     /**
      * @var string
      *
-     * @ORM\Column(name="thumb", type="string", length=255, options={"comment": "配图"})
+     * @ORM\Column(name="thumb", type="string", length=255, nullable=true, options={"comment": "配图"})
+     * @Assert\File(
+     *              maxSize = "10M",
+     *              mimeTypes={ "image/png", "image/jpeg", "image/jpg", "image/gif" }, 
+     *              mimeTypesMessage = "图片格式不支持"
+     * )
      */
     private $thumb;
     
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="请填写新闻关键字")
      * @ORM\Column(name="keyword", type="string", length=255, options={"comment": "关键字"})
      */
     private $keyword;
     
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="请填写简介")
      * @ORM\Column(name="introduction", type="string", length=255, options={"comment": "简介"})
      */
     private $introduction;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="请填写作者")
      * @ORM\Column(name="author", type="string", length=64, options={"comment": "作者"})
      */
     private $author;
@@ -81,25 +92,18 @@ class News
     /**
      * One news has one category
      * 
-     * @ORM\OneToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="news")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
 
     /**
      * @var int
-     * 
-     * @ORM\Column(name="content_id", type="integer", options={"comment": "内容ID"})
-     */
-    private $contentId;
-
-    /**
-     * One news has one content
-     *
-     * @ORM\OneToOne(targetEntity="NewsContent", inversedBy="news")
-     * @ORM\JoinColumn(name="content_id", referencedColumnName="id")
+     * @Assert\NotBlank(message="新闻内容不能为空")
+     * @ORM\Column(name="content", type="text", options={"comment": "内容"})
      */
     private $content;
+
     
     /**
      * @var \DateTime
@@ -124,9 +128,8 @@ class News
     
     public function __construct()
     {
-        $this->content = new ArrayCollection();
+        $this->category = new ArrayCollection();
     }
-
     /**
      * Get id
      *
@@ -303,14 +306,12 @@ class News
     {
         return $this->status;
     }
-    
     /**
-     * Set content
      * 
-     * @param NewsContent $content
+     * @param string $content
      * @return \KitNewsBundle\Entity\News
      */
-    public function setContent(NewsContent $content)
+    public function setContent($content)
     {
         $this->content = $content;
         return $this;
@@ -325,7 +326,25 @@ class News
     {
         return $this->content;
     }
-
+    /**
+     * 
+     * @param Category $category
+     * @return \KitNewsBundle\Entity\News
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
     /**
      * Set createAt
      *
@@ -396,6 +415,23 @@ class News
     public function getLevel()
     {
         return $this->level;
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        if($this->getCreateAt() == null){
+            $this->setCreateAt(new \DateTime());
+        }
+        $this->setUpdateAt(new \DateTime());
+    }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->setUpdateAt(new \DateTime());
     }
 }
 

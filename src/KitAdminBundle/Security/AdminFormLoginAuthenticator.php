@@ -51,7 +51,7 @@ class AdminFormLoginAuthenticator extends AbstractFormLoginAuthenticator
         try {
             return $userProvider->loadUserByUsername($credentials['username']);
         }catch (UsernameNotFoundException $e) {
-            throw new CustomUserMessageAuthenticationException();
+            throw new CustomUserMessageAuthenticationException('该用户不存在');
         }
         
         
