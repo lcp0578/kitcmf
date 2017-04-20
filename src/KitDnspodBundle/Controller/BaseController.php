@@ -2,6 +2,8 @@
 namespace KitDnspodBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 class BaseController extends Controller
 {
@@ -9,7 +11,7 @@ class BaseController extends Controller
     protected function request($uri, array $option = [], $method = 'POST')
     {
         $formParams = [
-            'login_token' => '25805,0578befb083369136cd2a05bb05a7e9c2087', // 用于鉴权的 API Token
+            'login_token' => '', // 用于鉴权的 API Token
             'format' => 'json', // {json,xml} 返回的数据格式，可选，默认为xml，建议用json
             'lang' => 'cn', // {en,cn} 返回的错误语言，可选，默认为en，建议用cn
             'error_on_empty' => 'yes'
@@ -58,5 +60,16 @@ class BaseController extends Controller
             ];
         }
         return $result;
+    }
+    
+    protected function getRows($file) {
+        $handle = fopen($file, 'rb');
+        if ($handle === false) {
+            throw new FileNotFoundException($file);
+        }
+        while (feof($handle) === false) {
+            yield fgets($handle);
+        }
+        fclose($handle);
     }
 }

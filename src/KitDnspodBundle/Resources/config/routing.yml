@@ -10,3 +10,12 @@ kit_dnspod_user:
 kit_dnspod_log:
     path:     /log
     defaults: { _controller: KitDnspodBundle:Default:log }
+kit_dnspod_domain:
+    path:     /domain/list
+    defaults: { _controller: KitDnspodBundle:Domain:list }
+kit_dnspod_record:
+    path:     /record/list
+    defaults: { _controller: KitDnspodBundle:Record:list }
+kit_dnspod_record_create:
+    path:     /record/create
+    defaults: { _controller: KitDnspodBundle:Record:create }
