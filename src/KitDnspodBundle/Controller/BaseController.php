@@ -11,7 +11,7 @@ class BaseController extends Controller
     protected function request($uri, array $option = [], $method = 'POST')
     {
         $formParams = [
-            'login_token' => '', // 用于鉴权的 API Token
+            'login_token' => '29592,ca5feee0c2dcfcd417cfc3b0196a21e5', // 用于鉴权的 API Token
             'format' => 'json', // {json,xml} 返回的数据格式，可选，默认为xml，建议用json
             'lang' => 'cn', // {en,cn} 返回的错误语言，可选，默认为en，建议用cn
             'error_on_empty' => 'yes'

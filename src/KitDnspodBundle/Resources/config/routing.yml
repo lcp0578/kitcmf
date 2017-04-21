@@ -13,6 +13,11 @@ kit_dnspod_log:
 kit_dnspod_domain:
     path:     /domain/list
     defaults: { _controller: KitDnspodBundle:Domain:list }
+kit_dnspod_domain_group:
+    path:     /domain/group/{page}
+    defaults: { _controller: KitDnspodBundle:Domain:group, page:1 }
+    requirements:
+        page: '\d+'
 kit_dnspod_record:
     path:     /record/list
     defaults: { _controller: KitDnspodBundle:Record:list }
