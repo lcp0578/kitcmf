@@ -3,13 +3,40 @@ namespace KitDnspodBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class RecordController extends BaseController
 {
 
-    public function indexAction()
+    public function indexAction($page, Request $request)
     {
-        return $this->render('KitDnspodBundle:Default:index.html.twig');
+        $domainId = $request->query->get('domain_id', null);
+        if($page < 1) $page = 1;
+        $pagesize = 10;
+        $param = [];
+        if(is_numeric($domainId)){
+            $param['domain_id'] = $domainId;
+        }else{
+            return new JsonResponse('参数错误');
+        }
+        $result = $this->request('Record.List', $param);
+        dump($result);
+        if(200 == $result['code'] && isset($result['data']['records']) && isset($result['data']['domain'])){
+            $list = $result['data']['records'];
+            $domain = $result['data']['domain'];
+        }else{
+            return new JsonResponse('网络异常，请刷新');
+        }
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $list,
+            $page,
+            $pagesize
+        );
+        return $this->render('KitDnspodBundle:Record:index.html.twig', [
+            'pagination' => $pagination,
+            'domain' => $domain
+        ]);
     }
 
     public function listAction()

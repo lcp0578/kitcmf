@@ -11,7 +11,7 @@ kit_dnspod_log:
     path:     /log
     defaults: { _controller: KitDnspodBundle:Default:log }
 kit_dnspod_domain:
-    path:     /domain/list
+    path:     /domain/list/{page}
     defaults: { _controller: KitDnspodBundle:Domain:list, page:1 }
     requirements:
         page: '\d+'
@@ -21,8 +21,10 @@ kit_dnspod_domain_group:
     requirements:
         page: '\d+'
 kit_dnspod_record:
-    path:     /record/list
-    defaults: { _controller: KitDnspodBundle:Record:list }
+    path:     /record/{page}
+    defaults: { _controller: KitDnspodBundle:Record:index, page:1 }
+    requirements:
+        page: '\d+'
 kit_dnspod_record_create:
     path:     /record/create
     defaults: { _controller: KitDnspodBundle:Record:create }
