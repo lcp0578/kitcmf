@@ -29,9 +29,7 @@
 				<td>{{ u.group_name }}</td>
 				<td>{{ u.group_type }}</td>
 				<td>{{ u.size }}</td>
-				<td><a class="button border-blue button-little" href="#">修改</a> <a
-					class="button border-yellow button-little" href="#" onclick="{
-					if(confirm('确认删除?')){return true;}returnfalse;}">删除</a></td>
+				<td><a class="button border-blue button-little" href="{{ path('kit_dnspod_domain', {'group_id': u.group_id}) }}">域名列表</a></td>
 			</tr>
 			{% endfor %}
 		</table>
