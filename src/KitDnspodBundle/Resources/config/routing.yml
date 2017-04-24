@@ -28,3 +28,6 @@ kit_dnspod_record:
 kit_dnspod_record_create:
     path:     /record/create
     defaults: { _controller: KitDnspodBundle:Record:create }
+kit_dnspod_record_add:
+    path:     /record/add
+    defaults: { _controller: KitDnspodBundle:Record:add }

@@ -4,6 +4,8 @@ namespace KitDnspodBundle\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class RecordController extends BaseController
 {
@@ -55,7 +57,7 @@ class RecordController extends BaseController
     protected function check($subDomain)
     {
         $result = $this->request('Record.List', [
-            'domain' => '2131.com'
+            'domain' => '17kxgame.com'
         ]);
         
         if (isset($result['data']['status']['code']) && 1 == $result['data']['status']['code']) {
@@ -76,15 +78,15 @@ class RecordController extends BaseController
         foreach ($this->getRows('record.log') as $row) {
             $rowInfo = preg_split('/\s+/', $row);
             echo '<pre>';
-            $subDomain = str_replace('.2131.com', '', $rowInfo[0]);
+            $subDomain = str_replace('.17kxgame.com', '', $rowInfo[0]);
             var_dump($subDomain);
             if (false === $id = $this->check($subDomain)) {
                 $result = $this->request('Record.Create', [
-                    'domain' => '2131.com',
+                    'domain' => '17kxgame.com',
                     'sub_domain' => $subDomain,
-                    'record_type' => 'CNAME',
+                    'record_type' => 'A', // or CNAME
                     'record_line' => '默认', // 电信
-                    'value' => $rowInfo[2]
+                    'value' => $rowInfo[1]
                 ]);
                 var_dump($result);
             } else {
@@ -114,5 +116,62 @@ class RecordController extends BaseController
             // }
         }
         return new Response();
+    }
+    /**
+     * 添加域名解析
+     */
+    public function addAction(Request $request)
+    {
+        $errors = [];
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $form = $this->createFormBuilder()
+            ->add('domain', null, ['label' => '域名'])
+            ->add('list', TextareaType::class, ['label' => '列表'])
+            ->add('submit', SubmitType::class, ['label' => '提交'])
+            ->getForm();
+        
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            if($form->isValid()){
+                /**
+                 */
+                $formData = $form->getData();
+                if(isset($formData['domain']) && isset($formData['list']) && !empty($formData['domain']) && !empty($formData['list'])){
+                    //dump($formData);
+                    //dump($formData['domain']);
+                    //dump($formData['list']);
+                    $rowArr = preg_split('/\r\n/', $formData['list']);
+                    foreach ($rowArr as $row){
+                        $rowInfo = preg_split('/\s+/', $row);
+                        //dump($rowInfo);
+                        $subDomain = str_replace('.17kxgame.com', '', $rowInfo[0]);
+                        var_dump($subDomain);
+                        if (false === $id = $this->check($subDomain)) {
+                            $result = $this->request('Record.Create', [
+                                'domain' => '17kxgame.com',
+                                'sub_domain' => $subDomain,
+                                'record_type' => 'A', // or CNAME
+                                'record_line' => '默认', // 电信
+                                'value' => $rowInfo[1]
+                            ]);
+                            var_dump($result);
+                        } else {
+                            var_dump($id);
+                        }
+                    }
+                }else{
+                    
+                }
+                
+                //return $this->msgResponse(0, '恭喜', '添加成功', 'kit_dnspod_record');
+            }else{
+                $errors = $this->serializeFormErrors($form);
+            }
+        }
+        return $this->render('KitDnspodBundle:Record:add.html.twig', [
+            'form' => $form->createView(),
+            'errors' => $errors
+        ]);
     }
 }
