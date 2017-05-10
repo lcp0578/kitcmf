@@ -1,0 +1,4 @@
+services:
+#    kit_data.example:
+#        class: KitDataBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -4,7 +4,6 @@ namespace KitAdminBundle\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use function GuzzleHttp\json_encode;
 
 class PullCommand extends ContainerAwareCommand
 {

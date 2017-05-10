@@ -54,3 +54,10 @@ services:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main } # The alias is what is used to retrieve the menu
             - { name: knp_menu.menu_builder, method: createSidebarIndexMenu, alias: sidebar_index }
             - { name: knp_menu.menu_builder, method: createSidebarRbacMenu, alias: sidebar_rbac }
+    kit_controller.data_base:
+        class: KitDataBundle\Controller\BaseController
+        calls:
+            - [setContainer, ["@service_container"]] 
+    kit_controller.data_default:
+        class: KitDataBundle\Controller\DefaultController
+        parent: kit_controller.data_base

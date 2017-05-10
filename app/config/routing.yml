@@ -1,3 +1,7 @@
+kit_data:
+    resource: "@KitDataBundle/Resources/config/routing.yml"
+    prefix:   /data
+
 kit_friend:
     resource: "@KitFriendBundle/Resources/config/routing.yml"
     prefix:   /friend

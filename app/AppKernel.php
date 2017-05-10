@@ -48,6 +48,7 @@ class AppKernel extends Kernel
             new KitCommandBundle\KitCommandBundle(),
             new KitChartsBundle\KitChartsBundle(),
             new KitFriendBundle\KitFriendBundle(),
+            new KitDataBundle\KitDataBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
