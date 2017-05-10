@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityManager;
 
 class DefaultController extends BaseController
 {
@@ -87,5 +88,11 @@ class DefaultController extends BaseController
     public function delAction()
     {
         return $this->render('KitRbacBundle:Default:index.html.twig');
+    }
+    
+    public function testAction()
+    {
+        $repo = $this->getDoctrine()->getRepository('KitRbacBundle:User');
+        $repo->
     }
 }
